@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useRef, type MouseEvent } from "react"
+import { useCallback, useRef, useState, type MouseEvent } from "react"
 import { InfoCard, type InfoCardProps } from "./info-card"
 
 const CARDS: InfoCardProps[] = [
@@ -29,6 +29,7 @@ const CARDS: InfoCardProps[] = [
 
 export function HeroDiagram() {
   const containerRef = useRef<HTMLElement>(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const handleMouseMove = useCallback((e: MouseEvent<HTMLElement>) => {
     const section = containerRef.current
@@ -115,27 +116,47 @@ export function HeroDiagram() {
       {/* Arrows */}
       <div className="absolute top-[228px] left-[calc(50%-306px)] flex h-[165.5px] w-[193.7px] items-center justify-center">
         <div className="flex-none rotate-[40.52deg]">
-          <div className="h-0 w-[254.8px] border-t-2 border-align-green" />
+          <div
+            className={`h-0 w-[254.8px] border-t-2 transition-colors duration-300 ${
+              hoveredCard === 0 ? "border-align-green" : "border-black"
+            }`}
+          />
         </div>
       </div>
 
       <div className="absolute top-[179px] left-[calc(50%+93px)] flex h-[83px] w-[205px] items-center justify-center">
         <div className="flex-none rotate-[157.96deg]">
-          <div className="h-0 w-[221.2px] border-t-2 border-align-green" />
+          <div
+            className={`h-0 w-[221.2px] border-t-2 transition-colors duration-300 ${
+              hoveredCard === 1 ? "border-align-green" : "border-black"
+            }`}
+          />
         </div>
       </div>
 
       <div className="absolute top-[423px] left-[calc(50%+18px)] flex h-[58px] w-[248px] items-center justify-center">
         <div className="flex-none rotate-[-166.84deg]">
-          <div className="h-0 w-[254.7px] border-t-2 border-align-green" />
+          <div
+            className={`h-0 w-[254.7px] border-t-2 transition-colors duration-300 ${
+              hoveredCard === 2 ? "border-align-green" : "border-black"
+            }`}
+          />
         </div>
       </div>
 
       {/* Cards */}
-      <div className="absolute top-[102px] left-[calc(50%-591px)]">
+      <div
+        className="absolute top-[102px] left-[calc(50%-591px)]"
+        onMouseEnter={() => setHoveredCard(0)}
+        onMouseLeave={() => setHoveredCard(null)}
+      >
         <InfoCard {...CARDS[0]} />
       </div>
-      <div className="absolute top-[224px] left-[calc(50%-310px)] size-2 bg-align-green" />
+      <div
+        className={`absolute top-[224px] left-[calc(50%-310px)] size-2 transition-colors duration-300 ${
+          hoveredCard === 0 ? "bg-align-green" : "bg-black"
+        }`}
+      />
       <svg
         className="absolute top-[216px] left-[calc(50%-318px)] size-6 overflow-visible"
         viewBox="0 0 24 24"
@@ -147,16 +168,24 @@ export function HeroDiagram() {
           height="24"
           fill="none"
           stroke="#26e500"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeDasharray="6 8"
           className="animate-dash"
         />
       </svg>
 
-      <div className="absolute top-[93px] left-[calc(50%+298px)]">
+      <div
+        className="absolute top-[93px] left-[calc(50%+298px)]"
+        onMouseEnter={() => setHoveredCard(1)}
+        onMouseLeave={() => setHoveredCard(null)}
+      >
         <InfoCard {...CARDS[1]} />
       </div>
-      <div className="absolute top-[176px] left-[calc(50%+294px)] size-2 bg-align-green" />
+      <div
+        className={`absolute top-[176px] left-[calc(50%+294px)] size-2 transition-colors duration-300 ${
+          hoveredCard === 1 ? "bg-align-green" : "bg-black"
+        }`}
+      />
       <svg
         className="absolute top-[168px] left-[calc(50%+286px)] size-6 overflow-visible"
         viewBox="0 0 24 24"
@@ -168,16 +197,24 @@ export function HeroDiagram() {
           height="24"
           fill="none"
           stroke="#26e500"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeDasharray="6 8"
           className="animate-dash"
         />
       </svg>
 
-      <div className="absolute top-[402px] left-[calc(50%+266px)]">
+      <div
+        className="absolute top-[402px] left-[calc(50%+266px)]"
+        onMouseEnter={() => setHoveredCard(2)}
+        onMouseLeave={() => setHoveredCard(null)}
+      >
         <InfoCard {...CARDS[2]} />
       </div>
-      <div className="absolute top-[477px] left-[calc(50%+262px)] size-2 bg-align-green" />
+      <div
+        className={`absolute top-[477px] left-[calc(50%+262px)] size-2 transition-colors duration-300 ${
+          hoveredCard === 2 ? "bg-align-green" : "bg-black"
+        }`}
+      />
       <svg
         className="absolute top-[469px] left-[calc(50%+254px)] size-6 overflow-visible"
         viewBox="0 0 24 24"
@@ -189,7 +226,7 @@ export function HeroDiagram() {
           height="24"
           fill="none"
           stroke="#26e500"
-          strokeWidth="2"
+          strokeWidth="1"
           strokeDasharray="6 8"
           className="animate-dash"
         />
