@@ -61,6 +61,69 @@
   --animate-dash: dash 1s linear infinite;
 }
 
+/* =============================================
+   GRID SYSTEM
+   1440px viewport → 1392px content area
+   4 columns × 330px + 3 gutters × 24px = 1392px
+   Side padding: 24px each
+   ============================================= */
+:root {
+  --grid-cols: 4;
+  --grid-col: 330px;
+  --grid-gap: 24px;
+  --grid-pad: 24px;
+  --grid-content: 1392px;
+  --grid-full: 1440px;
+}
+
+/* Dev-only: grid overlay — activate with body class or ?grid param */
+.grid-overlay-on::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent var(--grid-pad),
+      rgb(255 0 0 / 8%) var(--grid-pad),
+      rgb(255 0 0 / 8%) calc(var(--grid-pad) + var(--grid-col)),
+      transparent calc(var(--grid-pad) + var(--grid-col))
+    ),
+    linear-gradient(
+      to right,
+      transparent calc(var(--grid-pad) + var(--grid-col) + var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + var(--grid-col) + var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + 2 * var(--grid-col) + var(--grid-gap)),
+      transparent calc(var(--grid-pad) + 2 * var(--grid-col) + var(--grid-gap))
+    ),
+    linear-gradient(
+      to right,
+      transparent
+        calc(var(--grid-pad) + 2 * var(--grid-col) + 2 * var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + 2 * var(--grid-col) + 2 * var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + 3 * var(--grid-col) + 2 * var(--grid-gap)),
+      transparent
+        calc(var(--grid-pad) + 3 * var(--grid-col) + 2 * var(--grid-gap))
+    ),
+    linear-gradient(
+      to right,
+      transparent
+        calc(var(--grid-pad) + 3 * var(--grid-col) + 3 * var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + 3 * var(--grid-col) + 3 * var(--grid-gap)),
+      rgb(255 0 0 / 8%)
+        calc(var(--grid-pad) + 4 * var(--grid-col) + 3 * var(--grid-gap)),
+      transparent
+        calc(var(--grid-pad) + 4 * var(--grid-col) + 3 * var(--grid-gap))
+    );
+}
+
 @keyframes dash {
   to {
     stroke-dashoffset: -28;

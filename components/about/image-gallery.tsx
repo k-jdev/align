@@ -1,33 +1,30 @@
 import Image from "next/image"
+import { GridContainer } from "@/components/shared/grid-container"
 
 export function AboutImageGallery() {
   return (
-    <section className="w-full">
-      <div className="mx-auto w-full max-w-[1392px] px-6">
-        <div className="mt-16 flex flex-col gap-[11px] lg:flex-row">
-          {/* Left image — plane */}
-          <div className="relative h-[250px] w-full overflow-clip bg-[#b0b0b0] lg:h-[393px] lg:w-[691px] lg:shrink-0">
-            <Image
-              src="/images/about/plane.png"
-              alt="Plane"
-              fill
-              sizes="(max-width: 768px) 100vw, 691px"
-              className="object-cover"
-            />
-          </div>
-
-          {/* Right image — granny */}
-          <div className="relative h-[250px] w-full overflow-clip bg-align-card lg:h-[393px] lg:w-[691px] lg:shrink-0">
-            <Image
-              src="/images/about/granny.png"
-              alt="Granny"
-              fill
-              sizes="(max-width: 768px) 100vw, 691px"
-              className="object-cover"
-            />
-          </div>
-        </div>
+    <GridContainer as="section" className="mt-16">
+      {/* Left image — spans cols 1–2 */}
+      <div className="relative col-span-2 h-[250px] w-full overflow-clip bg-[#b0b0b0] lg:h-[393px]">
+        <Image
+          src="/images/about/plane.png"
+          alt="Plane"
+          fill
+          sizes="(max-width: 768px) 100vw, 684px"
+          className="object-cover"
+        />
       </div>
-    </section>
+
+      {/* Right image — spans cols 3–4 */}
+      <div className="relative col-span-2 h-[250px] w-full overflow-clip bg-align-card lg:h-[393px]">
+        <Image
+          src="/images/about/granny.png"
+          alt="Granny"
+          fill
+          sizes="(max-width: 768px) 100vw, 684px"
+          className="object-cover"
+        />
+      </div>
+    </GridContainer>
   )
 }

@@ -2,6 +2,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { GridOverlay } from "@/components/shared/grid-overlay"
 import { cn } from "@/lib/utils"
 
 const fontSans = IBM_Plex_Sans({
@@ -34,6 +35,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <GridOverlay />
       </body>
     </html>
   )

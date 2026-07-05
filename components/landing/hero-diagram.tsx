@@ -93,9 +93,9 @@ export function HeroDiagram() {
           </video>
         </div>
 
-        {/* Blur overlay — flat, outside preserve-3d so backdrop-filter works */}
+        {/* Blur overlay — 5×5 grid, integer sizes to avoid sub-pixel gaps */}
         <div
-          className="absolute top-[303px] left-[40px] grid grid-cols-5 gap-0"
+          className="absolute top-[303px] left-[40px] grid h-[205px] w-[205px] grid-cols-5 grid-rows-5 gap-0"
           style={{
             transform:
               "translate(calc(var(--mx) * 10px), calc(var(--my) * 10px))",
@@ -104,10 +104,7 @@ export function HeroDiagram() {
           }}
         >
           {Array.from({ length: 25 }).map((_, i) => (
-            <div
-              key={i}
-              className="size-[41.2px] bg-white/1 backdrop-blur-[22.8px]"
-            />
+            <div key={i} className="backdrop-blur-[22.8px]" />
           ))}
         </div>
       </div>
@@ -117,7 +114,7 @@ export function HeroDiagram() {
       <div className="absolute top-[228px] left-[calc(50%-306px)] flex h-[165.5px] w-[193.7px] items-center justify-center">
         <div className="flex-none rotate-[40.52deg]">
           <div
-            className={`h-0 w-[254.8px] border-t-2 transition-colors duration-300 ${
+            className={`h-0 w-[254.8px] border-t-2 transition-none ${
               hoveredCard === 0 ? "border-align-green" : "border-black"
             }`}
           />
@@ -127,7 +124,7 @@ export function HeroDiagram() {
       <div className="absolute top-[179px] left-[calc(50%+93px)] flex h-[83px] w-[205px] items-center justify-center">
         <div className="flex-none rotate-[157.96deg]">
           <div
-            className={`h-0 w-[221.2px] border-t-2 transition-colors duration-300 ${
+            className={`h-0 w-[221.2px] border-t-2 transition-none ${
               hoveredCard === 1 ? "border-align-green" : "border-black"
             }`}
           />
@@ -137,7 +134,7 @@ export function HeroDiagram() {
       <div className="absolute top-[423px] left-[calc(50%+18px)] flex h-[58px] w-[248px] items-center justify-center">
         <div className="flex-none rotate-[-166.84deg]">
           <div
-            className={`h-0 w-[254.7px] border-t-2 transition-colors duration-300 ${
+            className={`h-0 w-[254.7px] border-t-2 transition-none ${
               hoveredCard === 2 ? "border-align-green" : "border-black"
             }`}
           />
@@ -153,12 +150,14 @@ export function HeroDiagram() {
         <InfoCard {...CARDS[0]} />
       </div>
       <div
-        className={`absolute top-[224px] left-[calc(50%-310px)] size-2 transition-colors duration-300 ${
+        className={`absolute top-[224px] left-[calc(50%-310px)] size-2 transition-none ${
           hoveredCard === 0 ? "bg-align-green" : "bg-black"
         }`}
       />
       <svg
-        className="absolute top-[216px] left-[calc(50%-318px)] size-6 overflow-visible"
+        className={`absolute top-[216px] left-[calc(50%-318px)] size-6 overflow-visible transition-none ${
+          hoveredCard === 0 ? "animate-dash opacity-100" : "opacity-0"
+        }`}
         viewBox="0 0 24 24"
       >
         <rect
@@ -170,7 +169,6 @@ export function HeroDiagram() {
           stroke="#26e500"
           strokeWidth="1"
           strokeDasharray="6 8"
-          className="animate-dash"
         />
       </svg>
 
@@ -182,12 +180,14 @@ export function HeroDiagram() {
         <InfoCard {...CARDS[1]} />
       </div>
       <div
-        className={`absolute top-[176px] left-[calc(50%+294px)] size-2 transition-colors duration-300 ${
+        className={`absolute top-[176px] left-[calc(50%+294px)] size-2 transition-none ${
           hoveredCard === 1 ? "bg-align-green" : "bg-black"
         }`}
       />
       <svg
-        className="absolute top-[168px] left-[calc(50%+286px)] size-6 overflow-visible"
+        className={`absolute top-[168px] left-[calc(50%+286px)] size-6 overflow-visible transition-none ${
+          hoveredCard === 1 ? "animate-dash opacity-100" : "opacity-0"
+        }`}
         viewBox="0 0 24 24"
       >
         <rect
@@ -199,7 +199,6 @@ export function HeroDiagram() {
           stroke="#26e500"
           strokeWidth="1"
           strokeDasharray="6 8"
-          className="animate-dash"
         />
       </svg>
 
@@ -211,12 +210,14 @@ export function HeroDiagram() {
         <InfoCard {...CARDS[2]} />
       </div>
       <div
-        className={`absolute top-[477px] left-[calc(50%+262px)] size-2 transition-colors duration-300 ${
+        className={`absolute top-[477px] left-[calc(50%+262px)] size-2 transition-none ${
           hoveredCard === 2 ? "bg-align-green" : "bg-black"
         }`}
       />
       <svg
-        className="absolute top-[469px] left-[calc(50%+254px)] size-6 overflow-visible"
+        className={`absolute top-[469px] left-[calc(50%+254px)] size-6 overflow-visible transition-none ${
+          hoveredCard === 2 ? "animate-dash opacity-100" : "opacity-0"
+        }`}
         viewBox="0 0 24 24"
       >
         <rect
@@ -228,7 +229,6 @@ export function HeroDiagram() {
           stroke="#26e500"
           strokeWidth="1"
           strokeDasharray="6 8"
-          className="animate-dash"
         />
       </svg>
 

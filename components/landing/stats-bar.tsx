@@ -1,3 +1,5 @@
+import { GridContainer } from "@/components/shared/grid-container"
+
 interface StatItem {
   value: string
   label: string
@@ -75,31 +77,36 @@ function UserPlusIcon() {
 
 export function StatsBar() {
   return (
-    <section className="border-t border-[#d4d4d4]">
-      <div className="mx-auto w-full max-w-[1392px] px-6">
-        {/* Stats row */}
-        <div className="grid grid-cols-4 gap-6 py-12">
-          {STATS.map((stat) => (
-            <div key={stat.value} className="flex flex-col items-start gap-4">
-              <div className="flex items-start gap-0">
-                <span className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
-                  {stat.value}
-                </span>
-                <span className="mt-1 text-align-text">
-                  {stat.icon === "arrow-up" ? (
-                    <ArrowUpIcon />
-                  ) : (
-                    <UserPlusIcon />
-                  )}
-                </span>
+    <section className="w-full">
+      <GridContainer className="py-12">
+        {/* Top border — spans content width only */}
+        <div className="col-span-4 border-t border-[#d4d4d4] pt-12">
+          <div className="grid grid-cols-4 gap-(--grid-gap)">
+            {STATS.map((stat) => (
+              <div
+                key={stat.value}
+                className="col-span-1 flex flex-col items-start gap-4"
+              >
+                <div className="flex items-start gap-0">
+                  <span className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
+                    {stat.value}
+                  </span>
+                  <span className="mt-1 text-align-text">
+                    {stat.icon === "arrow-up" ? (
+                      <ArrowUpIcon />
+                    ) : (
+                      <UserPlusIcon />
+                    )}
+                  </span>
+                </div>
+                <p className="font-mono text-sm leading-5 text-align-muted">
+                  {stat.label}
+                </p>
               </div>
-              <p className="font-mono text-sm leading-5 text-align-muted">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </GridContainer>
     </section>
   )
 }

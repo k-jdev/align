@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { GridContainer } from "@/components/shared/grid-container"
 
 interface HeaderProps {
   variant?: "default" | "compact"
@@ -24,9 +25,9 @@ export function Header({ variant = "default" }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 h-12 w-full bg-align-badge-text">
-      <div className="relative mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-6">
-        {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+      <GridContainer className="h-full items-center">
+        {/* Logo — col 1, left edge */}
+        <Link href="/" className="col-span-1 flex shrink-0 items-center gap-2">
           <Image
             src="/logo.svg"
             alt="Align"
@@ -40,8 +41,8 @@ export function Header({ variant = "default" }: HeaderProps) {
           </span>
         </Link>
 
-        {/* Center nav */}
-        <nav className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2">
+        {/* Nav — cols 2–3, centered */}
+        <nav className="col-span-2 flex items-center justify-center gap-2">
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -53,14 +54,14 @@ export function Header({ variant = "default" }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Right CTA */}
+        {/* Contact — col 4, right edge */}
         <Link
           href="/contact"
-          className="flex h-8 items-center px-2 font-mono text-sm text-align-text underline decoration-from-font underline-offset-2"
+          className="col-span-1 flex items-center justify-end font-mono text-sm text-align-text underline decoration-from-font underline-offset-2"
         >
           Contact
         </Link>
-      </div>
+      </GridContainer>
     </header>
   )
 }
