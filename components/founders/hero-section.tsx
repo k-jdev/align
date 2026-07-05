@@ -21,8 +21,8 @@ export function FoundersHeroSection() {
           What we provide
         </p>
 
-        {/* Accordion — full width on mobile, cols 3–7 on desktop */}
-        <div className="col-span-8 lg:col-span-5 lg:col-start-3">
+        {/* Accordion — full width on mobile, cols 1–3 on desktop */}
+        <div className="col-span-8 lg:col-span-4 lg:col-start-3">
           <AccordionCards />
         </div>
       </GridContainer>

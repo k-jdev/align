@@ -58,35 +58,45 @@ export function AccordionCards() {
                 {item.title}
               </span>
               {isOpen ? (
-                <MinusIcon className="text-[#4a4a4a]" />
+                <MinusIcon className="text-[#4a4a4a] transition-transform duration-300 ease-in-out" />
               ) : (
-                <PlusIcon className="text-[#4a4a4a]" />
+                <PlusIcon className="text-[#4a4a4a] transition-transform duration-300 ease-in-out" />
               )}
             </button>
 
-            {isOpen && item.content && (
-              <div className="flex flex-col gap-2 pt-2">
-                <p className="font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-align-text">
-                  {item.content}
-                </p>
-
-                {item.note && (
-                  <div className="flex items-center gap-6 bg-[#e4e4e4] px-6 py-4">
-                    <Image
-                      src="/logo.svg"
-                      alt=""
-                      width={25}
-                      height={27}
-                      className="shrink-0 brightness-0"
-                      draggable={false}
-                    />
-                    <p className="flex-1 font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-[#4a4a4a]">
-                      {item.note.text}
+            <div
+              className="grid transition-all duration-300 ease-in-out"
+              style={{
+                gridTemplateRows: isOpen ? "1fr" : "0fr",
+                opacity: isOpen ? 1 : 0,
+              }}
+            >
+              <div className="overflow-hidden">
+                {item.content && (
+                  <div className="flex flex-col gap-2 pt-2">
+                    <p className="font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-align-text">
+                      {item.content}
                     </p>
+
+                    {item.note && (
+                      <div className="flex items-center gap-6 bg-[#e4e4e4] px-6 py-4">
+                        <Image
+                          src="/logo.svg"
+                          alt=""
+                          width={25}
+                          height={27}
+                          className="shrink-0 brightness-0"
+                          draggable={false}
+                        />
+                        <p className="flex-1 font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-[#4a4a4a]">
+                          {item.note.text}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-            )}
+            </div>
           </div>
         )
       })}
@@ -97,18 +107,14 @@ export function AccordionCards() {
 function MinusIcon({ className }: { className?: string }) {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="none"
       className={`shrink-0 ${className ?? ""}`}
     >
-      <path
-        d="M5 12H19"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M5 11H19V13H5V11Z" fill="#111111" />
     </svg>
   )
 }
@@ -116,18 +122,14 @@ function MinusIcon({ className }: { className?: string }) {
 function PlusIcon({ className }: { className?: string }) {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="none"
       className={`shrink-0 ${className ?? ""}`}
     >
-      <path
-        d="M12 5V19M5 12H19"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z" fill="#111111" />
     </svg>
   )
 }
