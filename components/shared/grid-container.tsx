@@ -4,33 +4,29 @@ interface GridContainerProps {
   children: React.ReactNode
   className?: string
   as?: "div" | "section" | "header" | "footer"
+  /** Number of columns: 4 (default) or 8 */
+  cols?: 4 | 8
   /** When false, only applies container width without CSS Grid. Default: true */
   grid?: boolean
 }
 
-/**
- * 4-column grid at 1440px viewport.
- * Content area: 1392px (1440 - 2×24px padding).
- * Columns: 4 × 330px, gutters: 3 × 24px.
- *
- * Direct children become grid items — use Tailwind's
- * `col-span-1` through `col-span-4` and
- * `col-start-1` through `col-start-4` to place them.
- *
- * Set `grid={false}` for sections that only need the width
- * wrapper but not the grid (e.g. flex layouts).
- */
+const COLS_CLASS: Record<4 | 8, string> = {
+  4: "grid-cols-4",
+  8: "grid-cols-8",
+}
+
 export function GridContainer({
   children,
   className,
   as: Tag = "div",
+  cols = 4,
   grid = true,
 }: GridContainerProps) {
   return (
     <Tag
       className={cn(
         "mx-auto w-full max-w-(--grid-content) px-(--grid-pad)",
-        grid && "grid grid-cols-4 gap-(--grid-gap)",
+        grid && `grid ${COLS_CLASS[cols]} gap-(--grid-gap)`,
         className
       )}
     >

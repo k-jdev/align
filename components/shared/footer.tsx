@@ -48,6 +48,7 @@ export function Footer() {
             height={80}
             priority
             className="lg:h-[113px] lg:w-[102px]"
+            draggable={false}
           />
 
           {/* Legal — desktop only (mobile at bottom) */}
@@ -94,16 +95,34 @@ export function Footer() {
               </a>
               <div className="mt-2">
                 <span className="font-mono text-xs leading-5 text-align-dim">
-                  © 2026 Align
+                  © 2026 Align. All rights reserved.
                 </span>
               </div>
             </div>
 
-            {/* Dots */}
+            {/* Animated pagination dots — wave right-to-left + back */}
             <div className="flex gap-[10px]">
-              <div className="size-2 bg-white" />
-              <div className="size-2 bg-white opacity-50" />
-              <div className="size-2 bg-white opacity-10" />
+              <div
+                className="size-2 bg-white"
+                style={{
+                  animation: "dot-wave 1.5s ease-in-out infinite",
+                  animationDelay: "0ms",
+                }}
+              />
+              <div
+                className="size-2 bg-white"
+                style={{
+                  animation: "dot-wave 1.5s ease-in-out infinite",
+                  animationDelay: "0.15s",
+                }}
+              />
+              <div
+                className="size-2 bg-white"
+                style={{
+                  animation: "dot-wave 1.5s ease-in-out infinite",
+                  animationDelay: "0.3s",
+                }}
+              />
             </div>
           </div>
         </div>

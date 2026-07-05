@@ -40,7 +40,13 @@ export function InfoCard({
                 key={i}
                 className="relative size-12 overflow-clip bg-[#e8e8e8]"
               >
-                <Image src={src} alt="" fill className="object-cover" />
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  draggable={false}
+                />
               </div>
             ))}
             {avatarCount !== undefined && (

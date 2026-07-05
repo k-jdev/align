@@ -35,6 +35,7 @@ export function Header({ variant = "default" }: HeaderProps) {
             height={27}
             priority
             className="h-[27px] w-[25px]"
+            draggable={false}
           />
           <span className="font-mono text-[24.6px] leading-none tracking-[-2.2px] text-align-text">
             a<span className="tracking-[-1.92px]">l</span>ign

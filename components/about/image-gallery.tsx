@@ -12,6 +12,7 @@ export function AboutImageGallery() {
           fill
           sizes="(max-width: 768px) 100vw, 684px"
           className="object-cover"
+          draggable={false}
         />
       </div>
 
@@ -23,6 +24,7 @@ export function AboutImageGallery() {
           fill
           sizes="(max-width: 768px) 100vw, 684px"
           className="object-cover"
+          draggable={false}
         />
       </div>
     </GridContainer>

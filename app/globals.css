@@ -48,6 +48,9 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
+  /* --- Grid utilities for 8 columns --- */
+  --grid-template-cols-8: repeat(8, minmax(0, 1fr));
+
   /* --- Align tokens --- */
   --color-align-green: #26e500;
   --color-align-text: #111;
@@ -74,6 +77,12 @@
   --grid-pad: 24px;
   --grid-content: 1392px;
   --grid-full: 1440px;
+}
+
+/* 8-column variant: 153px × 8 + 24px × 7 = 1392px */
+:root.grid-8 {
+  --grid-cols: 8;
+  --grid-col: 153px;
 }
 
 /* Dev-only: grid overlay — activate with body class or ?grid param */
@@ -127,6 +136,20 @@
 @keyframes dash {
   to {
     stroke-dashoffset: -28;
+  }
+}
+
+@keyframes dot-wave {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
   }
 }
 
