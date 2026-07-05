@@ -18,7 +18,7 @@ export function WhySection() {
 
         <Link
           href="/work"
-          className="inline-flex h-10 shrink-0 items-center gap-3 bg-align-text/87 px-4 font-mono text-base text-align-badge-text"
+          className="inline-flex h-10 shrink-0 items-center gap-3 bg-[#1E1E1E] px-4 font-mono text-base text-align-badge-text"
         >
           Our Work
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">

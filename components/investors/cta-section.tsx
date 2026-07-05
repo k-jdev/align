@@ -15,7 +15,7 @@ export function InvestorsCtaSection() {
 
             <Link
               href="/blog"
-              className="flex h-10 w-fit items-center gap-3 bg-align-text px-4 font-mono text-base leading-6 text-align-badge-text"
+              className="flex h-10 w-fit items-center gap-3 bg-[#111] px-4 font-mono text-base leading-6 text-align-badge-text"
             >
               Subscribe
             </Link>
@@ -32,9 +32,6 @@ export function InvestorsCtaSection() {
               draggable={false}
             />
           </div>
-
-          {/* Dot — x=582, y=98, size=2 */}
-          <div className="absolute top-[98px] left-[207px] size-[2px] bg-[#3f0]" />
         </div>
       </GridContainer>
     </section>
