@@ -66,7 +66,7 @@ function UserPlusIcon() {
 export function StatsBar() {
   return (
     <section className="relative z-10 w-full">
-      <GridContainer className="pt-4 pb-12">
+      <GridContainer className="pt-5 pb-12">
         <div className="col-span-4 border-t border-[#d4d4d4] pt-12">
           <div className="grid grid-cols-2 gap-x-(--grid-gap) gap-y-8 md:grid-cols-4 md:gap-y-(--grid-gap)">
             {STATS.map((stat) => (

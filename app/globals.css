@@ -62,6 +62,10 @@
   --color-align-footer-text: #eee;
   --color-align-badge-text: #fcfcfc;
   --animate-dash: dash 1s linear infinite;
+
+  /* --- Custom breakpoints --- */
+  --breakpoint-md: 854px;
+  --breakpoint-lg: 1130px;
 }
 
 /* =============================================
@@ -79,7 +83,7 @@
   --grid-full: 1440px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 854px) {
   :root {
     --grid-pad: 24px;
   }

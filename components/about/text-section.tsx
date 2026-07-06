@@ -4,7 +4,7 @@ export function AboutTextSection() {
   return (
     <GridContainer as="section" className="pb-24">
       <div className="col-span-4 lg:col-span-2 lg:col-start-2">
-        <h2 className="pt-16 font-sans text-[32px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:text-[48px]">
+        <h2 className="pt-16 font-sans text-[36px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:text-[48px]">
           Why we make a difference.
         </h2>
 

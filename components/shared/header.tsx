@@ -14,13 +14,11 @@ const NAV_ITEMS_DEFAULT = [
   { label: "Founders", href: "/founders" },
   { label: "Investors", href: "/investors" },
   { label: "Our work", href: "/work" },
-  { label: "Blog", href: "/blog" },
 ] as const
 
 const NAV_ITEMS_COMPACT = [
   { label: "About", href: "/about" },
   { label: "Our Work", href: "/work" },
-  { label: "Blog", href: "/blog" },
 ] as const
 
 export function Header({ variant = "default" }: HeaderProps) {
@@ -40,7 +38,7 @@ export function Header({ variant = "default" }: HeaderProps) {
             width={64}
             height={64}
             priority
-            className="h-6 w-auto"
+            className="w-auto"
             draggable={false}
           />
         </Link>

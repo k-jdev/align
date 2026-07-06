@@ -8,14 +8,14 @@ export function FoundersHeroSection() {
       <GridContainer cols={8} className="pt-20.75 pb-24">
         <DynamicShiftText
           as="h1"
-          className="col-span-8 font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:col-span-6 lg:col-start-1 lg:text-[64px]"
+          className="col-span-8 font-sans text-[42px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:col-span-6 lg:col-start-1 lg:text-[64px]"
         >
-          We back startups at any stage, with <br /> whatever they&apos;re
-          missing.
+          We back startups at any stage, with <br className="hidden lg:block" />{" "}
+          whatever they&apos;re missing.
         </DynamicShiftText>
 
         <p
-          className="col-span-8 mt-8 font-sans text-[48px] leading-14.5 font-light text-align-text md:leading-27.5 lg:col-span-3 lg:col-start-3"
+          className="col-span-8 mt-8 font-sans text-[36px] leading-14.5 font-light text-align-text md:leading-27.5 lg:col-span-3 lg:col-start-3"
           style={{ letterSpacing: "-0.16px" }}
         >
           What we provide

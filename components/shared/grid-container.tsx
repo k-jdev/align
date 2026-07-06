@@ -28,7 +28,7 @@ export function GridContainer({
         "w-full",
         !mobileFullWidth && "mx-auto max-w-(--grid-content) px-(--grid-pad)",
         mobileFullWidth &&
-          "max-w-none md:mx-auto md:max-w-(--grid-content) md:px-(--grid-pad)",
+          "max-w-none lg:mx-auto lg:max-w-(--grid-content) lg:px-(--grid-pad)",
         grid && `grid ${COLS_CLASS[cols]} gap-(--grid-gap)`,
         className
       )}

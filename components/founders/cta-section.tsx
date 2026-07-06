@@ -16,9 +16,9 @@ export function FoundersCtaSection() {
 
           <div className="mt-8 hidden bg-white p-2.5 md:mt-0 md:mb-0 md:block md:w-89">
             <p className="font-mono text-sm leading-5 text-align-text">
-              We work with teams across all stages, dynamically providing what
-              each needs. We specialize in providing the network needed to go
-              from 0 to 1.
+              Sometimes it's easier to go from 1 to 100 than from 0 to 1. And
+              sometimes you're stuck at 50. <br /> <br /> Wherever you are, we
+              can help.
             </p>
 
             <div className="mt-2.5 flex h-8 items-center justify-between">
@@ -50,7 +50,7 @@ export function FoundersCtaSection() {
             alt=""
             width={489}
             height={465}
-            className="h-112 w-full object-cover"
+            className="h-auto w-full object-contain"
             priority
             unoptimized
             draggable={false}
@@ -59,9 +59,8 @@ export function FoundersCtaSection() {
           <div className="absolute right-0 bottom-6 left-0 z-10 px-4">
             <div className="bg-white p-2.5">
               <p className="font-mono text-sm leading-5 text-align-text">
-                We work with teams across all stages, dynamically providing what
-                each needs. We specialize in providing the network needed to go
-                from 0 to 1.
+                Sometimes it's easier to go from 1 to 100 than from 0 to 1. And
+                sometimes you're stuck at 50. Wherever you are, we can help.
               </p>
 
               <div className="mt-2.5 flex h-8 items-center justify-between">

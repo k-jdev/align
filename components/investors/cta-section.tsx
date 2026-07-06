@@ -7,7 +7,7 @@ export function InvestorsCtaSection() {
     <section className="w-full bg-align-bg">
       <GridContainer cols={8} className="pt-16">
         <div className="relative col-span-8 flex flex-col gap-0 md:h-103 md:flex-row md:overflow-clip lg:col-span-4 lg:col-start-3">
-          <div className="z-10 flex flex-col gap-6 px-6 pt-8 md:absolute md:top-8 md:left-6.25 md:px-0">
+          <div className="z-10 flex flex-col gap-6 md:absolute md:top-8 md:left-6.25 md:px-0">
             <h2 className="font-sans text-[36px] leading-[1.1] font-light tracking-[-0.16px] text-align-text md:text-[48px]">
               Join our Blog
             </h2>

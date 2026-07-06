@@ -8,19 +8,16 @@ export function WhySection() {
       className="relative z-10 mt-0 pt-6 pb-8 md:-mt-42 md:pb-0"
     >
       <div className="col-span-full">
-        <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
-          Why we make a difference.
-        </h2>
-
         <div className="mt-6 flex flex-col gap-4 md:mt-0 md:flex-row md:items-end md:justify-between">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <div className="size-2 shrink-0 bg-align-green" />
             <span className="font-mono text-xl leading-5 text-align-text">
-              Backing ventures
-              <br className="md:hidden" />
-              since 2021.
+              {"Backing ventures since 2021."}
             </span>
-          </div>
+          </div> */}
+          <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
+            Backing ventures since 2021.
+          </h2>
 
           <Link
             href="/work"

@@ -21,13 +21,10 @@ export function AboutHeroSection() {
         className={`col-span-4 mt-8 flex items-center gap-4 lg:col-span-3 ${shifted ? "lg:col-start-2" : "lg:col-start-1"}`}
       >
         <div className="size-2 shrink-0 bg-align-green" />
-        <DynamicShiftText
-          as="p"
-          className="font-sans text-lg leading-[1.4] text-align-text lg:max-w-[492px] lg:text-xl"
-        >
-          We work primarily with crypto/blockchain projects, <br /> and
-          increasingly with AI.
-        </DynamicShiftText>
+        <p className="max-w-[492px] font-sans text-lg leading-[1.4] text-align-text lg:text-xl">
+          We work primarily with crypto/blockchain projects, and increasingly
+          with AI.
+        </p>
       </div>
 
       <button

@@ -75,7 +75,7 @@ export function AccordionCards() {
               <div className="overflow-hidden">
                 {item.content && (
                   <div className="flex flex-col gap-2 pt-2">
-                    <p className="font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-align-text">
+                    <p className="font-sans text-[18px] leading-[1.4] font-normal tracking-[0] text-align-text">
                       {item.content}
                     </p>
 
@@ -89,7 +89,7 @@ export function AccordionCards() {
                           className="shrink-0 brightness-0"
                           draggable={false}
                         />
-                        <p className="flex-1 font-sans text-[20px] leading-[1.4] font-normal tracking-[0] text-[#4a4a4a]">
+                        <p className="flex-1 font-sans text-[18px] leading-[1.4] font-normal tracking-[0] text-[#4a4a4a]">
                           {item.note.text}
                         </p>
                       </div>
