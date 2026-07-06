@@ -47,9 +47,9 @@ export function FoundersCtaSection() {
         <Image
           src="/images/founders/pixel mountain.png"
           alt=""
-          width={462}
-          height={602}
-          className="absolute right-0 bottom-0 max-h-full w-auto object-contain"
+          width={817}
+          height={412}
+          className="absolute -right-20 bottom-0 max-h-full w-auto object-contain"
           priority
           unoptimized
           draggable={false}

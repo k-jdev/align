@@ -5,7 +5,7 @@ import { GridContainer } from "@/components/shared/grid-container"
 export function InvestorsCtaSection() {
   return (
     <section className="w-full bg-align-bg">
-      <GridContainer cols={8} className="pb-24">
+      <GridContainer cols={8} className="pt-16 pb-24">
         <div className="relative col-span-8 flex h-[412px] overflow-clip bg-align-green lg:col-span-4 lg:col-start-3">
           <div className="absolute top-8 left-[25px] z-10 flex flex-col gap-6">
             <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-0.16px] text-align-text">

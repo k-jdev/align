@@ -34,17 +34,17 @@ export function WorkFeaturedSection() {
           Featured
         </h2>
 
-        <div className="col-span-full mt-8 grid grid-cols-8 gap-(--grid-gap)">
+        <div className="col-span-full mt-8 grid grid-cols-1 gap-(--grid-gap) md:grid-cols-8">
           {FEATURED_PROJECTS.map((p, i) => (
-            <div key={i} className="col-span-4">
+            <div key={i} className="md:col-span-4">
               <ProjectCard label={p.label} description={p.description} />
             </div>
           ))}
         </div>
 
-        <div className="col-span-full mt-8 grid grid-cols-8 gap-(--grid-gap)">
+        <div className="col-span-full mt-8 grid grid-cols-1 gap-(--grid-gap) md:grid-cols-8">
           {BOTTOM_PROJECTS.map((p, i) => (
-            <div key={i} className="col-span-4">
+            <div key={i} className="md:col-span-4">
               <ProjectCard label={p.label} description={p.description} />
             </div>
           ))}
