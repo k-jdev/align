@@ -21,7 +21,6 @@ export function InfoCard({
 }: InfoCardProps) {
   return (
     <div className="flex w-[285px] flex-col items-start">
-      {/* Badge */}
       <div className="bg-align-text px-2 py-1">
         <span className="font-mono text-sm leading-5 text-align-badge-text uppercase">
           {badge}
@@ -59,7 +58,6 @@ export function InfoCard({
           </div>
         )}
 
-        {/* CTA */}
         <Link
           href={cta.href}
           className="flex h-8 items-center font-mono text-sm text-align-text underline decoration-from-font underline-offset-2"

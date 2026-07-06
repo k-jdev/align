@@ -60,14 +60,12 @@ export function HeroDiagram() {
       onMouseLeave={handleMouseLeave}
       className="relative h-[636px] w-full overflow-hidden bg-align-bg"
     >
-      {/* ---- VIDEO + BLUR (only element with parallax) ---- */}
       <div
         className="absolute top-1/2 left-1/2 h-[636px] w-[620px] -translate-x-1/2 -translate-y-1/2"
         style={{
           perspective: "1200px",
         }}
       >
-        {/* 3D tilt wrapper — video only */}
         <div
           className="absolute inset-0"
           style={{
@@ -93,7 +91,6 @@ export function HeroDiagram() {
           </video>
         </div>
 
-        {/* Blur overlay — 5×5 grid, integer sizes to avoid sub-pixel gaps */}
         <div
           className="absolute top-[303px] left-[40px] grid h-[205px] w-[205px] grid-cols-5 grid-rows-5 gap-0"
           style={{
@@ -109,8 +106,6 @@ export function HeroDiagram() {
         </div>
       </div>
 
-      {/* ---- STATIC OVERLAY: arrows, cards, dots, squares ---- */}
-      {/* Arrows */}
       <div className="absolute top-[228px] left-[calc(50%-306px)] flex h-[165.5px] w-[193.7px] items-center justify-center">
         <div className="flex-none rotate-[40.52deg]">
           <div
@@ -141,7 +136,6 @@ export function HeroDiagram() {
         </div>
       </div>
 
-      {/* Cards */}
       <div
         className="absolute top-[102px] left-[calc(50%-591px)]"
         onMouseEnter={() => setHoveredCard(0)}
@@ -232,7 +226,6 @@ export function HeroDiagram() {
         />
       </svg>
 
-      {/* Green squares */}
       <div className="absolute top-[239px] left-[calc(50%+72px)] size-[42px] border-2 border-align-green" />
       <div className="absolute top-[402px] left-[calc(50%-5px)] size-[42px] border-2 border-align-green" />
       <div className="absolute top-[370px] left-[calc(50%-134.5px)] size-[42px] border-2 border-align-green" />

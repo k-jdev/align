@@ -5,9 +5,7 @@ import { GridContainer } from "@/components/shared/grid-container"
 export function FoundersCtaSection() {
   return (
     <GridContainer as="section" cols={4} className="py-24">
-      {/* Block — cols 1–4, sand bg */}
       <div className="relative col-span-4 flex h-[480px] items-center overflow-clip bg-[#e9e8e6]">
-        {/* Text — left side */}
         <div className="relative z-10 ml-8 flex flex-col">
           <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
             It&apos;s never too early <br /> to reach out.

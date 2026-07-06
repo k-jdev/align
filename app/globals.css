@@ -79,13 +79,11 @@
   --grid-full: 1440px;
 }
 
-/* 8-column variant: 153px × 8 + 24px × 7 = 1392px */
 :root.grid-8 {
   --grid-cols: 8;
   --grid-col: 153px;
 }
 
-/* Dev-only: grid overlay — activate with body class or ?grid param */
 .grid-overlay-on::after {
   content: "";
   position: fixed;

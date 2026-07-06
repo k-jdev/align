@@ -67,7 +67,6 @@ export function StatsBar() {
   return (
     <section className="w-full">
       <GridContainer className="py-12">
-        {/* Top border — spans content width only */}
         <div className="col-span-4 border-t border-[#d4d4d4] pt-12">
           <div className="grid grid-cols-4 gap-(--grid-gap)">
             {STATS.map((stat) => (

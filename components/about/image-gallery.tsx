@@ -4,7 +4,6 @@ import { GridContainer } from "@/components/shared/grid-container"
 export function AboutImageGallery() {
   return (
     <GridContainer as="section" className="mt-16">
-      {/* Left image — spans cols 1–2 */}
       <div className="relative col-span-2 h-[250px] w-full overflow-clip bg-[#b0b0b0] lg:h-[393px]">
         <Image
           src="/images/about/plane.png"
@@ -16,7 +15,6 @@ export function AboutImageGallery() {
         />
       </div>
 
-      {/* Right image — spans cols 3–4 */}
       <div className="relative col-span-2 h-[250px] w-full overflow-clip bg-align-card lg:h-[393px]">
         <Image
           src="/images/about/granny.png"

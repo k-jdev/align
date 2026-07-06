@@ -4,9 +4,7 @@ interface GridContainerProps {
   children: React.ReactNode
   className?: string
   as?: "div" | "section" | "header" | "footer"
-  /** Number of columns: 4 (default) or 8 */
   cols?: 4 | 8
-  /** When false, only applies container width without CSS Grid. Default: true */
   grid?: boolean
 }
 

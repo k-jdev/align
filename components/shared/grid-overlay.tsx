@@ -11,7 +11,6 @@ export function GridOverlay() {
   const [visible, setVisible] = useState(false)
   const [cols, setCols] = useState(4)
 
-  // Check ?grid on mount and read column count
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     if (params.has("grid")) setVisible(true)
@@ -22,7 +21,6 @@ export function GridOverlay() {
     if (count) setCols(Number(count) || 4)
   }, [])
 
-  // Re-read cols when Ctrl+G toggles
   useEffect(() => {
     if (visible) {
       const count = getComputedStyle(document.documentElement)
@@ -32,7 +30,6 @@ export function GridOverlay() {
     }
   }, [visible])
 
-  // Keyboard toggle: Ctrl+G
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.ctrlKey && e.key === "g") {
       e.preventDefault()
@@ -54,7 +51,6 @@ export function GridOverlay() {
 
   return (
     <>
-      {/* Column bands */}
       <div
         className="pointer-events-none fixed inset-0 z-9998 mx-auto"
         style={{
@@ -76,7 +72,6 @@ export function GridOverlay() {
         </div>
       </div>
 
-      {/* Gutters overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-9997 mx-auto"
         style={{
@@ -94,7 +89,6 @@ export function GridOverlay() {
         </div>
       </div>
 
-      {/* Toggle hint — click to switch 4↔8 */}
       <div
         className="fixed right-4 bottom-4 z-9999 cursor-pointer rounded bg-black/70 px-2 py-1 font-mono text-[11px] text-white/70 hover:bg-black/90"
         onClick={() => setCols((c) => (c === 4 ? 8 : 4))}
