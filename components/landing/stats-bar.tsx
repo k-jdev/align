@@ -68,7 +68,7 @@ export function StatsBar() {
     <section className="relative z-10 w-full">
       <GridContainer className="pt-4 pb-12">
         <div className="col-span-4 border-t border-[#d4d4d4] pt-12">
-          <div className="grid grid-cols-2 gap-(--grid-gap) md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-(--grid-gap) gap-y-8 md:grid-cols-4 md:gap-y-(--grid-gap)">
             {STATS.map((stat) => (
               <div
                 key={stat.value}

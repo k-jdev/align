@@ -3,7 +3,10 @@ import { GridContainer } from "@/components/shared/grid-container"
 
 export function WhySection() {
   return (
-    <GridContainer as="section" className="relative z-10 mt-0 pt-6 md:-mt-50">
+    <GridContainer
+      as="section"
+      className="relative z-10 mt-0 pt-6 pb-8 md:-mt-42 md:pb-0"
+    >
       <div className="col-span-full">
         <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
           Why we make a difference.
@@ -13,7 +16,9 @@ export function WhySection() {
           <div className="flex items-center gap-3">
             <div className="size-2 shrink-0 bg-align-green" />
             <span className="font-mono text-xl leading-5 text-align-text">
-              Backing ventures since 2021.
+              Backing ventures
+              <br className="md:hidden" />
+              since 2021.
             </span>
           </div>
 

@@ -49,7 +49,7 @@ export function FoundersCtaSection() {
           alt=""
           width={462}
           height={602}
-          className="absolute right-0 h-full w-auto object-contain"
+          className="absolute right-0 bottom-0 max-h-full w-auto object-contain"
           priority
           unoptimized
           draggable={false}
