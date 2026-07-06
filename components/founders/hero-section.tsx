@@ -8,7 +8,7 @@ export function FoundersHeroSection() {
       <GridContainer cols={8} className="pt-[83px] pb-24">
         <DynamicShiftText
           as="h1"
-          className="col-span-8 font-sans text-[40px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:col-span-6 lg:col-start-3 lg:text-[64px]"
+          className="col-span-8 font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:col-span-6 lg:col-start-1 lg:text-[64px]"
         >
           We back startups at any stage, with <br /> whatever they&apos;re
           missing.

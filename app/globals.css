@@ -73,7 +73,7 @@
 :root {
   --grid-cols: 4;
   --grid-col: 330px;
-  --grid-gap: 24px;
+  --grid-gap: 10px;
   --grid-pad: 24px;
   --grid-content: 1392px;
   --grid-full: 1440px;
@@ -149,6 +149,20 @@
   50% {
     opacity: 0.15;
   }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
 :root {
@@ -233,5 +247,10 @@
   }
   html {
     @apply font-sans;
+  }
+
+  ::selection {
+    background-color: #111;
+    color: #fff;
   }
 }

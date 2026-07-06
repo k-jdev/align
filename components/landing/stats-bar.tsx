@@ -65,10 +65,10 @@ function UserPlusIcon() {
 
 export function StatsBar() {
   return (
-    <section className="w-full">
-      <GridContainer className="py-12">
+    <section className="relative z-10 w-full">
+      <GridContainer className="pt-4 pb-12">
         <div className="col-span-4 border-t border-[#d4d4d4] pt-12">
-          <div className="grid grid-cols-4 gap-(--grid-gap)">
+          <div className="grid grid-cols-2 gap-(--grid-gap) md:grid-cols-4">
             {STATS.map((stat) => (
               <div
                 key={stat.value}

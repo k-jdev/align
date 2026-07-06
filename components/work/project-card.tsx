@@ -12,11 +12,11 @@ export function ProjectCard({ label, description }: ProjectCardProps) {
       {/* Label row — IBM Plex Mono: label 20px #111 + desc 14px #757575, gap 10px */}
       {label && (
         <div className="mt-4 flex items-start gap-[10px]">
-          <span className="w-[341px] shrink-0 font-mono text-[20px] leading-5 tracking-[0] text-align-text">
+          <span className="min-w-0 flex-1 font-mono text-[20px] leading-5 tracking-[0] text-align-text">
             {label}
           </span>
           {description && (
-            <span className="flex-1 font-mono text-sm leading-5 tracking-[0] text-align-muted">
+            <span className="min-w-0 flex-1 font-mono text-sm leading-5 tracking-[0] text-align-muted">
               {description}
             </span>
           )}

@@ -62,14 +62,14 @@ export function Header({ variant = "default" }: HeaderProps) {
 
         <Link
           href="/contact"
-          className="hidden items-center justify-end font-mono text-sm text-align-text underline decoration-from-font underline-offset-2 md:col-span-1 md:flex"
+          className="hidden items-center justify-end font-mono text-sm text-align-text underline decoration-solid decoration-1 underline-offset-2 [text-decoration-skip-ink:none] md:col-span-1 md:flex"
         >
           Contact
         </Link>
 
         <button
           type="button"
-          className="col-span-1 flex items-center justify-end md:hidden"
+          className="col-span-1 flex items-center justify-end text-align-text md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
@@ -123,7 +123,7 @@ export function Header({ variant = "default" }: HeaderProps) {
               ))}
               <Link
                 href="/contact"
-                className="flex h-10 items-center font-mono text-sm text-align-text underline decoration-from-font underline-offset-2"
+                className="flex h-10 items-center font-mono text-sm text-align-text underline decoration-solid decoration-1 underline-offset-2 [text-decoration-skip-ink:none]"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact

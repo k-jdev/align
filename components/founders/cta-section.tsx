@@ -1,18 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
 import { GridContainer } from "@/components/shared/grid-container"
+import { Typewriter } from "@/components/shared/typewriter"
 
 export function FoundersCtaSection() {
   return (
     <GridContainer as="section" cols={4} className="py-24">
-      <div className="relative col-span-4 flex h-[480px] items-center overflow-clip bg-[#e9e8e6]">
-        <div className="relative z-10 ml-8 flex flex-col">
+      <div className="relative col-span-4 flex h-[480px] overflow-clip bg-[#e9e8e6]">
+        <div className="relative z-10 ml-9 flex h-full flex-col justify-between py-12">
           <h2 className="font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text">
-            It&apos;s never too early <br /> to reach out.
+            It&apos;s never too <Typewriter words={["early", "late"]} />
+            <br />
+            to reach out.
           </h2>
 
-          <div className="mt-8 w-[357px] bg-white p-[10px]">
-            <p className="font-sans text-lg leading-[1.5] text-align-text">
+          <div className="w-[357px] bg-white p-[10px]">
+            <p className="font-mono text-sm leading-[1.5] text-align-text">
               We work with teams across all stages, dynamically providing what
               each needs. We specialize in providing the network needed to go
               from 0 to 1.

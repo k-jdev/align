@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logo — Flowing Dither</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #eeeeee;
+        overflow: hidden;
+      }
+      #canvas-wrap {
+        width: 100vw;
+        height: 100vh;
+      }
+      canvas {
+        display: block;
+      }
+      #controls {
+        display: none;
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: #555;
+        width: 200px;
+        backdrop-filter: blur(6px);
+      }
+      #controls .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      #controls input[type="range"] {
+        width: 100%;
+      }
+      #controls .row + input[type="range"] {
+        margin-bottom: 14px;
+      }
+
+      #connectorLines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 5;
+      }
+      #annotations {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 6;
+      }
+      .label-group {
+        position: fixed;
+        width: 280px;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 400;
+        cursor: move;
+        pointer-events: auto;
+        z-index: 6;
+      }
+      .label-heading {
+        display: inline-block;
+        width: auto;
+        background: #111111;
+        color: #fcfcfc;
+        padding: 4px 8px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        outline: none;
+      }
+      .label-content {
+        background: #f5f5f5;
+        padding: 10px;
+      }
+      .label-text {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #222;
+        outline: none;
+      }
+      .label-button {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #222;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .logo-row {
+        display: inline-flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .logo-box {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-box--white {
+        background: #ffffff;
+      }
+      .logo-box--purple {
+        background: #635bff;
+      }
+      .logo-box--black {
+        background: #000000;
+      }
+      .logo-box--count {
+        background: #e4e4e4;
+        color: #a6a6a6;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .box-caption {
+        display: none;
+        position: fixed;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 9px;
+        color: #999999;
+        pointer-events: none;
+        z-index: 6;
+      }
+      .connector-square {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: #111111;
+        cursor: pointer;
+        pointer-events: auto;
+        z-index: 6;
+        transform: translate(-50%, -50%);
+      }
+      .connector-square.active {
+        background: #26e500;
+      }
+      .connector-ring {
+        position: fixed;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 6;
+        transform: translate(-50%, -50%);
+      }
+      .connector-ring.active {
+        opacity: 1;
+      }
+      .connector-ring rect {
+        fill: none;
+        stroke: #26e500;
+        stroke-width: 1.5;
+        stroke-dasharray: 4 3;
+        animation: marchAnts 0.5s linear infinite;
+      }
+      @keyframes marchAnts {
+        to {
+          stroke-dashoffset: -7;
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  </head>
+  <body>
+    <div id="canvas-wrap"></div>
+    <div id="controls">
+      <div class="row">
+        <label for="cellSlider">Dither scale</label><span id="cellVal">2</span>
+      </div>
+      <input type="range" id="cellSlider" min="1" max="8" step="1" value="2" />
+      <div class="row">
+        <label for="gradientSlider">Gradient</label
+        ><span id="gradientVal">1.58</span>
+      </div>
+      <input
+        type="range"
+        id="gradientSlider"
+        min="0"
+        max="2"
+        step="0.01"
+        value="1.58"
+      />
+      <div class="row">
+        <label for="waveScaleSlider">Wave scale</label
+        ><span id="waveScaleVal">26</span>
+      </div>
+      <input
+        type="range"
+        id="waveScaleSlider"
+        min="0"
+        max="60"
+        step="1"
+        value="26"
+      />
+      <div class="row">
+        <label for="brightnessSlider">Brightness</label
+        ><span id="brightnessVal">0.14</span>
+      </div>
+      <input
+        type="range"
+        id="brightnessSlider"
+        min="0"
+        max="1.5"
+        step="0.01"
+        value="0.14"
+      />
+    </div>
+
+    <svg id="connectorLines">
+      <line
+        id="line-0"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="0"
+        stroke="#111111"
+        stroke-width="1"
+      />
+      <line
+        id="line-1"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="0"
+        stroke="#111111"
+        stroke-width="1"
+      />
+      <line
+        id="line-2"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="0"
+        stroke="#111111"
+        stroke-width="1"
+      />
+    </svg>
+
+    <div id="annotations">
+      <div class="label-group" id="box-0">
+        <div class="label-heading" id="heading-0">Curating Investors</div>
+        <div class="label-content" id="content-0">
+          <div class="label-text" id="text-0">
+            Early access to the projects we back and the conviction that only
+            comes from being involved.
+          </div>
+          <div class="label-button" id="button-0">Join as investor</div>
+        </div>
+      </div>
+      <div class="connector-square" id="square-0"></div>
+      <svg class="connector-ring" id="ring-0" width="24" height="24">
+        <rect x="1" y="1" width="22" height="22" />
+      </svg>
+      <div class="box-caption" id="caption-0"></div>
+
+      <div class="label-group" id="box-1">
+        <div class="label-heading" id="heading-1">Powering Startups</div>
+        <div class="label-content" id="content-1">
+          <div class="label-text" id="text-1">
+            We back founders with funding, resources, and the one thing money
+            can't buy. The network.
+          </div>
+          <div class="logo-row">
+            <div class="logo-box logo-box--white">
+              <svg viewBox="0 0 48 48" width="26" height="18">
+                <path
+                  d="M4 6 L30 6 L44 18 L18 18 Z M4 30 L30 30 L44 42 L18 42 Z"
+                  fill="#111111"
+                />
+              </svg>
+            </div>
+            <div class="logo-box logo-box--purple">
+              <svg viewBox="0 0 48 48" width="22" height="22">
+                <path
+                  d="M34 14 C30 9 16 9 14 15 C12 21 20 22 26 24 C34 27 36 33 32 37 C27 42 15 41 12 35"
+                  stroke="#ffffff"
+                  stroke-width="6"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="logo-box logo-box--black">
+              <svg viewBox="0 0 48 48" width="26" height="26">
+                <polygon points="6,6 42,6 24,34" fill="#ffffff" />
+              </svg>
+            </div>
+            <div class="logo-box logo-box--count">30+</div>
+          </div>
+          <div class="label-button" id="button-1">Pitch us</div>
+        </div>
+      </div>
+      <div class="connector-square" id="square-1"></div>
+      <svg class="connector-ring" id="ring-1" width="24" height="24">
+        <rect x="1" y="1" width="22" height="22" />
+      </svg>
+      <div class="box-caption" id="caption-1"></div>
+
+      <div class="label-group" id="box-2">
+        <div class="label-heading" id="heading-2">Aligning Participants</div>
+        <div class="label-content" id="content-2">
+          <div class="label-text" id="text-2">
+            One network, aligning the people who build and the people who back
+            them.
+          </div>
+          <div class="label-button" id="button-2">About us</div>
+        </div>
+      </div>
+      <div class="connector-square" id="square-2"></div>
+      <svg class="connector-ring" id="ring-2" width="24" height="24">
+        <rect x="1" y="1" width="22" height="22" />
+      </svg>
+      <div class="box-caption" id="caption-2"></div>
+    </div>
+    <script>
+      // ---- Logo geometry, taken verbatim from the source SVG (viewBox 0 0 478 490). ----
+      // All paths are straight-edged polygons (M/L/H/V/Z only) so they can be
+      // reproduced exactly with beginShape/vertex — no image loading, no scaling, no warp.
+      const SVG_W = 478
+      const SVG_H = 490
+      const BASE_SCALE = 1.15 // logo scale for any width up to the breakpoint
+      const SCALE_BREAKPOINT = 1440 // beyond this window width, the logo starts scaling up
+
+      let LOGO_SCALE = BASE_SCALE
+      let LOGO_W = Math.round(SVG_W * LOGO_SCALE)
+      let LOGO_H = Math.round(SVG_H * LOGO_SCALE)
+
+      function computeLogoScale() {
+        const w = window.innerWidth
+        return w > SCALE_BREAKPOINT
+          ? BASE_SCALE * (w / SCALE_BREAKPOINT)
+          : BASE_SCALE
+      }
+
+      // Recomputes LOGO_SCALE/LOGO_W/LOGO_H for the current window width. If the scale
+      // actually changed, rescales MARKERS in place (they live in logo-local, scale-
+      // dependent pixel space) so they stay put on the same visual feature of the logo,
+      // and reports the change so the caller can rebuild the p5 mask at the new size.
+      function updateLogoScale() {
+        const newScale = computeLogoScale()
+        if (newScale === LOGO_SCALE) return false
+        const ratio = newScale / LOGO_SCALE
+        for (const m of MARKERS) {
+          m[0] *= ratio
+          m[1] *= ratio
+        }
+        LOGO_SCALE = newScale
+        LOGO_W = Math.round(SVG_W * LOGO_SCALE)
+        LOGO_H = Math.round(SVG_H * LOGO_SCALE)
+        return true
+      }
+      const LOGO_POLYS = [
+        [
+          [252.726, 253.083],
+          [252.726, 450.712],
+          [225.256, 450.712],
+          [225.256, 253.083],
+          [52.7717, 154.253],
+          [66.5071, 130.651],
+          [239.023, 229.482],
+          [411.54, 130.651],
+          [425.275, 154.253],
+          [252.759, 253.083],
+        ],
+        [
+          [252.756, 172.691],
+          [225.285, 172.691],
+          [225.285, 39.7097],
+          [252.756, 39.7097],
+        ],
+        [
+          [66.5069, 359.739],
+          [52.7715, 336.134],
+          [168.84, 269.643],
+          [182.576, 293.248],
+        ],
+        [
+          [411.481, 359.746],
+          [295.412, 293.255],
+          [309.147, 269.65],
+          [425.216, 336.141],
+        ],
+      ]
+
+      let offsetX, offsetY
+
+      // Uses window dimensions directly (not p5's width/height) so this works even
+      // if p5 hasn't initialized yet — or never does.
+      function updateOffsets() {
+        updateLogoScale()
+        offsetX = Math.round((window.innerWidth - LOGO_W) / 2)
+        offsetY = Math.round((window.innerHeight - LOGO_H) / 2)
+      }
+
+      // 8x8 Bayer ordered-dither matrix (0..63), used as a fixed threshold field.
+      const BAYER = [
+        [0, 32, 8, 40, 2, 34, 10, 42],
+        [48, 16, 56, 24, 50, 18, 58, 26],
+        [12, 44, 4, 36, 14, 46, 6, 38],
+        [60, 28, 52, 20, 62, 30, 54, 22],
+        [3, 35, 11, 43, 1, 33, 9, 41],
+        [51, 19, 59, 27, 49, 17, 57, 25],
+        [15, 47, 7, 39, 13, 45, 5, 37],
+        [63, 31, 55, 23, 61, 29, 53, 21],
+      ]
+
+      const NOISE_SCALE = 0.018
+      const NOISE_SPEED = 0.12
+      const BASE_VALUE = 0.82 // baseline coverage density (keeps logo reading solid)
+      const FLOW_AMP = 0.3
+      const STREAK_SIGMA = 55
+      const STREAK_SPEED = 1.1
+      const WAVE_FREQ = 0.028
+      const HOVER_RADIUS = 130
+      const HOVER_STRENGTH = 0.4
+
+      const MARKERS = [
+        [372, 209],
+        [159, 344],
+        [290, 419],
+      ] // scaled logo-local coordinates (approx 550x563 box)
+      const MARKER_SIZE = 40
+
+      let dragIndex = -1
+      let dragOffsetX = 0,
+        dragOffsetY = 0
+
+      function markerIndexUnderMouse() {
+        const half = MARKER_SIZE / 2
+        for (let i = 0; i < MARKERS.length; i++) {
+          const sx = offsetX + MARKERS[i][0]
+          const sy = offsetY + MARKERS[i][1]
+          if (
+            mouseX >= sx - half &&
+            mouseX <= sx + half &&
+            mouseY >= sy - half &&
+            mouseY <= sy + half
+          ) {
+            return i
+          }
+        }
+        return -1
+      }
+
+      function mousePressed() {
+        const i = markerIndexUnderMouse()
+        if (i >= 0) {
+          dragIndex = i
+          dragOffsetX = mouseX - (offsetX + MARKERS[i][0])
+          dragOffsetY = mouseY - (offsetY + MARKERS[i][1])
+        }
+      }
+
+      function mouseDragged() {
+        if (dragIndex >= 0) {
+          MARKERS[dragIndex][0] = Math.round(mouseX - dragOffsetX - offsetX)
+          MARKERS[dragIndex][1] = Math.round(mouseY - dragOffsetY - offsetY)
+        }
+      }
+
+      function mouseReleased() {
+        dragIndex = -1
+      }
+
+      // ---- Label boxes: draggable annotations connected to each marker by a leader line ----
+      // Positions are stored as (dx, dy) offsets from the logo's center, so a box stays
+      // put relative to the logo — and its reported coordinates stay constant — across resizes.
+      const LABELS = [
+        { dx: 290, dy: -334 },
+        { dx: -522, dy: -264 },
+        { dx: 229, dy: 22 },
+      ]
+
+      const boxEls = [0, 1, 2].map((i) => document.getElementById(`box-${i}`))
+      const contentEls = [0, 1, 2].map((i) =>
+        document.getElementById(`content-${i}`)
+      )
+      const squareEls = [0, 1, 2].map((i) =>
+        document.getElementById(`square-${i}`)
+      )
+      const ringEls = [0, 1, 2].map((i) => document.getElementById(`ring-${i}`))
+      const lineEls = [0, 1, 2].map((i) => document.getElementById(`line-${i}`))
+      const captionEls = [0, 1, 2].map((i) =>
+        document.getElementById(`caption-${i}`)
+      )
+
+      function logoCenter() {
+        return { x: offsetX + LOGO_W / 2, y: offsetY + LOGO_H / 2 }
+      }
+
+      const SCREEN_MARGIN = 24
+
+      // Computes where a box "wants" to be (its virtual logo-relative position, clamped to
+      // the viewport margin) without touching the DOM. LABELS[i].dx/dy is never mutated:
+      // it's the box's "true" intended position, so shrinking the window and restoring it
+      // returns the box to the same spot.
+      function computeNormalPosition(i) {
+        const center = logoCenter()
+        const r = boxEls[i].getBoundingClientRect()
+        const maxLeft = Math.max(
+          SCREEN_MARGIN,
+          window.innerWidth - SCREEN_MARGIN - r.width
+        )
+        const maxTop = Math.max(
+          SCREEN_MARGIN,
+          window.innerHeight - SCREEN_MARGIN - r.height
+        )
+
+        // Beyond the breakpoint the logo grows (see updateLogoScale) — scale the box's
+        // horizontal distance from the logo center by the same amount, so it moves
+        // outward sideways with it. Vertical offset is left untouched.
+        const growth = LOGO_SCALE / BASE_SCALE
+        let left = center.x + LABELS[i].dx * growth
+        let top = center.y + LABELS[i].dy
+        left = Math.min(Math.max(left, SCREEN_MARGIN), maxLeft)
+        top = Math.min(Math.max(top, SCREEN_MARGIN), maxTop)
+
+        return { left, top, width: r.width, height: r.height }
+      }
+
+      const COLLISION_GAP = 64
+
+      // Lays out all boxes at once. Each box keeps its own normal (dx/dy-derived) position —
+      // including its horizontal placement — but if two boxes would overlap (typically on a
+      // squeezed/narrow screen), the lower one is nudged down just enough to leave a 64px
+      // virtual margin below the one above it. Once there's room again, everything settles
+      // back to each box's individual spot, since LABELS[i].dx/dy is never touched.
+      function xRangesOverlap(a, b) {
+        return a.left < b.left + b.width && a.left + a.width > b.left
+      }
+
+      function layoutBoxes() {
+        const order = boxEls.map((_, i) => i)
+        const positions = boxEls.map((_, i) => computeNormalPosition(i))
+        order.sort((a, b) => positions[a].top - positions[b].top)
+
+        // Only enforce the vertical gap between boxes that actually share horizontal
+        // space — two boxes sitting far apart side by side should never be pushed
+        // apart just because of their vertical order.
+        for (let k = 1; k < order.length; k++) {
+          const cur = positions[order[k]]
+          for (let m = 0; m < k; m++) {
+            const prev = positions[order[m]]
+            if (!xRangesOverlap(prev, cur)) continue
+            const minTop = prev.top + prev.height + COLLISION_GAP
+            if (cur.top < minTop) cur.top = minTop
+          }
+        }
+
+        for (let i = 0; i < boxEls.length; i++) {
+          boxEls[i].style.left = positions[i].left + "px"
+          boxEls[i].style.top = positions[i].top + "px"
+        }
+      }
+
+      // Attaches the connector square flush to whichever box wall faces the marker,
+      // so the square's center sits exactly on that wall (no floating gap).
+      function positionConnector(i) {
+        const r = boxEls[i].getBoundingClientRect()
+        const contentR = contentEls[i].getBoundingClientRect()
+        const markerX = (offsetX || 0) + MARKERS[i][0]
+        const boxCenterX = r.left + r.width / 2
+        const attachRight = boxCenterX < markerX
+        const edgeX = attachRight ? r.right : r.left
+        const edgeY = contentR.top + contentR.height / 2
+        squareEls[i].dataset.side = attachRight ? "right" : "left"
+        squareEls[i].style.left = edgeX + "px"
+        squareEls[i].style.top = edgeY + "px"
+        ringEls[i].style.left = edgeX + "px"
+        ringEls[i].style.top = edgeY + "px"
+      }
+
+      function updateConnectorLine(i) {
+        const sq = squareEls[i].getBoundingClientRect()
+        const centerX = sq.left + sq.width / 2
+        const centerY = sq.top + sq.height / 2
+        const line = lineEls[i]
+        line.setAttribute("x1", centerX)
+        line.setAttribute("y1", centerY)
+        line.setAttribute("x2", offsetX + MARKERS[i][0])
+        line.setAttribute("y2", offsetY + MARKERS[i][1])
+      }
+
+      function positionCaption(i) {
+        const r = boxEls[i].getBoundingClientRect()
+        captionEls[i].style.left = r.left + "px"
+        captionEls[i].style.top = r.bottom + 4 + "px"
+        captionEls[i].textContent =
+          `Box ${i + 1} — ${Math.round(LABELS[i].dx)}, ${Math.round(LABELS[i].dy)}`
+      }
+
+      // Repositions every box (collision-aware) and refreshes each one's connector/caption.
+      // Needed as one combined pass rather than per-box, since whether any single box sits
+      // at its normal spot or in the fallback stack depends on all three at once.
+      function refreshAll() {
+        layoutBoxes()
+        for (let i = 0; i < boxEls.length; i++) {
+          positionConnector(i)
+          updateConnectorLine(i)
+          positionCaption(i)
+        }
+      }
+
+      function setConnectorActive(i, active) {
+        squareEls[i].classList.toggle("active", active)
+        ringEls[i].classList.toggle("active", active)
+        lineEls[i].setAttribute("stroke", active ? "#26e500" : "#111111")
+      }
+
+      // Position everything once immediately, independent of p5 — so the boxes lay out
+      // correctly (not stacked on top of each other) even if the p5.js CDN script is slow,
+      // blocked, or fails to load. p5's draw() loop takes over the continuous sync once
+      // (and if) it starts running.
+      updateOffsets()
+      refreshAll()
+      window.addEventListener("resize", () => {
+        updateOffsets()
+        refreshAll()
+      })
+
+      let boxDragIndex = -1
+      let boxDragOffsetX = 0,
+        boxDragOffsetY = 0
+
+      boxEls.forEach((el, i) => {
+        el.addEventListener("mousedown", (e) => {
+          if (e.target.closest(".label-button")) return
+          boxDragIndex = i
+          const r = el.getBoundingClientRect()
+          boxDragOffsetX = e.clientX - r.left
+          boxDragOffsetY = e.clientY - r.top
+          e.preventDefault()
+        })
+        el.addEventListener("mouseenter", () => setConnectorActive(i, true))
+        el.addEventListener("mouseleave", () => setConnectorActive(i, false))
+        squareEls[i].addEventListener("mouseenter", () =>
+          setConnectorActive(i, true)
+        )
+        squareEls[i].addEventListener("mouseleave", () =>
+          setConnectorActive(i, false)
+        )
+      })
+
+      document.addEventListener("mousemove", (e) => {
+        if (boxDragIndex >= 0) {
+          const center = logoCenter()
+          const growth = LOGO_SCALE / BASE_SCALE
+          LABELS[boxDragIndex].dx =
+            (e.clientX - boxDragOffsetX - center.x) / growth
+          LABELS[boxDragIndex].dy = e.clientY - boxDragOffsetY - center.y
+          refreshAll()
+        }
+      })
+      document.addEventListener("mouseup", () => {
+        boxDragIndex = -1
+      })
+
+      let CELL = 2 // dither cell size in px
+      let GRADIENT = 1.58 // top-to-bottom fade strength (0 = uniform, 2 = strongest fade)
+      let WAVE_SCALE = 26 // px, amplitude of the wavy perturbation on the streak path
+      let BRIGHTNESS = 0.14 // strength of the light streak brightening effect
+
+      const cellSlider = document.getElementById("cellSlider")
+      const gradientSlider = document.getElementById("gradientSlider")
+      const waveScaleSlider = document.getElementById("waveScaleSlider")
+      const brightnessSlider = document.getElementById("brightnessSlider")
+      const cellVal = document.getElementById("cellVal")
+      const gradientVal = document.getElementById("gradientVal")
+      const waveScaleVal = document.getElementById("waveScaleVal")
+      const brightnessVal = document.getElementById("brightnessVal")
+
+      cellSlider.addEventListener("input", (e) => {
+        CELL = parseInt(e.target.value, 10)
+        cellVal.textContent = CELL
+      })
+      gradientSlider.addEventListener("input", (e) => {
+        GRADIENT = parseFloat(e.target.value)
+        gradientVal.textContent = GRADIENT.toFixed(2)
+      })
+      waveScaleSlider.addEventListener("input", (e) => {
+        WAVE_SCALE = parseFloat(e.target.value)
+        waveScaleVal.textContent = WAVE_SCALE
+      })
+      brightnessSlider.addEventListener("input", (e) => {
+        BRIGHTNESS = parseFloat(e.target.value)
+        brightnessVal.textContent = BRIGHTNESS.toFixed(2)
+      })
+
+      let mask // p5.Graphics holding the rasterized logo (alpha = coverage)
+      let maskPixels // cached pixel buffer
+      let maskScale // LOGO_SCALE the current mask was built at — rebuilt when it drifts
+      let diagDir // unit vector for the streak sweep direction
+      let streakSpan
+
+      // (Re)rasterizes the logo at the current LOGO_SCALE/LOGO_W/LOGO_H. Called once at
+      // startup and again whenever the responsive scale (see updateLogoScale) changes.
+      function rebuildMask() {
+        mask = createGraphics(LOGO_W, LOGO_H)
+        mask.pixelDensity(1)
+        mask.clear()
+        mask.noStroke()
+        mask.fill(255)
+        mask.scale(LOGO_SCALE)
+        for (const poly of LOGO_POLYS) {
+          mask.beginShape()
+          for (const [x, y] of poly) mask.vertex(x, y)
+          mask.endShape(CLOSE)
+        }
+        mask.loadPixels()
+        maskPixels = mask.pixels
+        maskScale = LOGO_SCALE
+
+        diagDir = createVector(Math.cos(-0.42), Math.sin(-0.42)).normalize()
+        streakSpan =
+          Math.abs(LOGO_W * diagDir.x) + Math.abs(LOGO_H * diagDir.y) + 400
+      }
+
+      function setup() {
+        pixelDensity(window.devicePixelRatio || 1)
+        const cnv = createCanvas(windowWidth, windowHeight)
+        cnv.parent("canvas-wrap")
+        noStroke()
+        updateOffsets()
+        rebuildMask()
+        frameRate(60)
+      }
+
+      function windowResized() {
+        resizeCanvas(windowWidth, windowHeight)
+        updateOffsets()
+      }
+
+      function maskAlphaAt(lx, ly) {
+        const ix = lx < 0 ? 0 : lx >= LOGO_W ? LOGO_W - 1 : lx | 0
+        const iy = ly < 0 ? 0 : ly >= LOGO_H ? LOGO_H - 1 : ly | 0
+        return maskPixels[(iy * LOGO_W + ix) * 4 + 3]
+      }
+
+      function draw() {
+        if (LOGO_SCALE !== maskScale) rebuildMask()
+
+        background(238)
+        noStroke()
+
+        const t = frameCount / 60
+        const streakCenter = ((frameCount * STREAK_SPEED) % streakSpan) - 200
+
+        for (let gy = 0; gy < LOGO_H; gy += CELL) {
+          for (let gx = 0; gx < LOGO_W; gx += CELL) {
+            const cx = gx + CELL * 0.5
+            const cy = gy + CELL * 0.5
+            const a = maskAlphaAt(cx, cy)
+            if (a < 8) continue
+
+            const screenX = offsetX + cx
+            const screenY = offsetY + cy
+
+            // flowing noise field — animates the dither pattern without moving the shape
+            const n = noise(gx * NOISE_SCALE, gy * NOISE_SCALE, t * NOISE_SPEED)
+
+            // wavy diagonal light streak sweeping through the mark
+            const wave = Math.sin(gy * WAVE_FREQ + t * 0.6) * WAVE_SCALE
+            const proj = gx * diagDir.x + gy * diagDir.y
+            const d = proj + wave - streakCenter
+            const streak =
+              Math.exp(-(d * d) / (2 * STREAK_SIGMA * STREAK_SIGMA)) *
+              BRIGHTNESS
+
+            // mouse-proximity lightening
+            const md = dist(screenX, screenY, mouseX, mouseY)
+            const hover =
+              md < HOVER_RADIUS
+                ? Math.pow(1 - md / HOVER_RADIUS, 2) * HOVER_STRENGTH
+                : 0
+
+            // top-to-bottom fade: solid near the top, progressively lighter/more dithered below
+            const verticalT = cy / LOGO_H
+            const gradientFade = GRADIENT * verticalT * 0.55
+
+            let value =
+              BASE_VALUE - gradientFade + (n - 0.5) * FLOW_AMP - streak - hover
+            value = value < 0 ? 0 : value > 1 ? 1 : value
+
+            const threshold = BAYER[(gx / CELL) % 8][(gy / CELL) % 8] / 64
+            if (value <= threshold) continue
+
+            const shade = 164 + (n - 0.5) * 40
+            fill(shade, shade, shade, a)
+            rectMode(CENTER)
+            rect(screenX, screenY, CELL * 0.95, CELL * 0.95)
+          }
+        }
+
+        drawMarkers()
+        refreshAll()
+      }
+
+      function drawMarkers() {
+        rectMode(CENTER)
+        textFont("monospace")
+        textSize(9)
+        textAlign(LEFT, TOP)
+
+        for (const [mx, my] of MARKERS) {
+          const sx = offsetX + mx
+          const sy = offsetY + my
+
+          noFill()
+          stroke(38, 229, 0) // #26E500
+          strokeWeight(2)
+          rect(sx, sy, MARKER_SIZE, MARKER_SIZE)
+
+          noStroke()
+          fill(80)
+          text(
+            `${Math.round(mx)}, ${Math.round(my)}`,
+            sx + MARKER_SIZE / 2 + 6,
+            sy - MARKER_SIZE / 2
+          )
+        }
+
+        const hoverIndex = markerIndexUnderMouse()
+        cursor(dragIndex >= 0 || hoverIndex >= 0 ? "grab" : "default")
+      }
+    </script>
+  </body>
+</html>

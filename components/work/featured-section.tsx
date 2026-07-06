@@ -62,9 +62,9 @@ export function WorkFeaturedSection() {
           </Link>
         </div>
 
-        <div className="col-span-full mt-8 flex gap-[10px]">
+        <div className="col-span-full mt-8 grid grid-cols-2 gap-[10px] md:grid-cols-3">
           {MORE_PROJECTS.map((name, i) => (
-            <div key={i} className="flex flex-1 flex-col gap-6">
+            <div key={i} className="flex flex-col gap-6">
               <div className="aspect-[691/450] w-full bg-[#e1e1e1]" />
               <p className="font-mono text-[20px] leading-5 tracking-[0] text-align-text">
                 {name}
