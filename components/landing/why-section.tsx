@@ -5,7 +5,7 @@ export function WhySection() {
   return (
     <GridContainer
       as="section"
-      className="relative z-10 mt-0 pt-6 pb-8 md:-mt-42 md:pb-0"
+      className="relative z-10 mt-0 pt-6 pb-8 md:-mt-36 md:pb-0"
     >
       <div className="col-span-full">
         <div className="mt-6 flex flex-col gap-4 md:mt-0 md:flex-row md:items-end md:justify-between">

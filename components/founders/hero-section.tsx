@@ -15,7 +15,7 @@ export function FoundersHeroSection() {
         </DynamicShiftText>
 
         <p
-          className="col-span-8 mt-8 font-sans text-[36px] leading-14.5 font-light text-align-text md:leading-27.5 lg:col-span-3 lg:col-start-3"
+          className="col-span-8 mt-8 font-sans text-[36px] leading-14.5 font-light text-align-text md:text-[48px] md:leading-27.5 lg:col-span-3 lg:col-start-3"
           style={{ letterSpacing: "-0.16px" }}
         >
           What we provide

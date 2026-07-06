@@ -57,7 +57,7 @@ export function InvestorsHeroSection() {
                       href="/contact"
                       className="font-mono text-sm leading-5 text-align-text underline decoration-solid decoration-1 underline-offset-2 [text-decoration-skip-ink:none]"
                     >
-                      Apply to Align
+                      Learn how it works
                     </Link>
 
                     <svg

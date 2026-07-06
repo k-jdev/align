@@ -24,7 +24,7 @@ const BOTTOM_PROJECTS = [
   },
 ]
 
-const MORE_PROJECTS = ["Ashpool", "Ashpool"]
+const MORE_PROJECTS = ["Ashpool", "Ashpool", "Ashpool"]
 
 export function WorkFeaturedSection() {
   return (
@@ -34,7 +34,7 @@ export function WorkFeaturedSection() {
           Featured
         </h2>
 
-        <div className="col-span-full mt-8 grid grid-cols-1 gap-6 md:grid-cols-8 md:gap-(--grid-gap)">
+        <div className="col-span-full mt-8 grid grid-cols-1 gap-6 md:grid-cols-8 md:gap-x-(--grid-gap) md:gap-y-14">
           {[...FEATURED_PROJECTS, ...BOTTOM_PROJECTS].map((p, i) => (
             <div key={i} className="md:col-span-4">
               <ProjectCard label={p.label} description={p.description} />
@@ -56,7 +56,10 @@ export function WorkFeaturedSection() {
 
         <div className="col-span-full mt-8 grid grid-cols-2 gap-[10px] md:grid-cols-3">
           {MORE_PROJECTS.map((name, i) => (
-            <div key={i} className="flex flex-col gap-4">
+            <div
+              key={i}
+              className={`flex flex-col gap-4 ${i === 2 ? "max-md:hidden" : ""}`}
+            >
               <div className="aspect-[691/450] w-full bg-[#e1e1e1]" />
               <p className="font-mono text-[20px] leading-5 tracking-[0] text-align-text">
                 {name}
