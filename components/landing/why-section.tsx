@@ -12,7 +12,7 @@ export function WhySection() {
           Why we make a difference.
         </h2>
 
-        <div className="mt-6 flex items-end justify-between md:mt-0">
+        <div className="mt-6 flex flex-col gap-4 md:mt-0 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-3">
             <div className="size-2 shrink-0 bg-align-green" />
             <span className="font-mono text-xl leading-5 text-align-text">
@@ -24,7 +24,7 @@ export function WhySection() {
 
           <Link
             href="/work"
-            className="inline-flex h-10 shrink-0 items-center gap-3 bg-[#1E1E1E] px-4 font-mono text-base text-align-badge-text"
+            className="inline-flex h-10 w-fit shrink-0 items-center gap-3 bg-[#1E1E1E] px-4 font-mono text-base text-align-badge-text"
           >
             Our Work
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">

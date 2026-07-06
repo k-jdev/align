@@ -35,17 +35,14 @@ export function Header({ variant = "default" }: HeaderProps) {
           className="col-span-3 flex shrink-0 items-center gap-2 md:col-span-1"
         >
           <Image
-            src="/logo.svg"
+            src="/logo-text.svg"
             alt="Align"
-            width={25}
-            height={27}
+            width={64}
+            height={64}
             priority
-            className="h-[27px] w-[25px]"
+            className="h-6 w-auto"
             draggable={false}
           />
-          <span className="font-mono text-[24.6px] leading-none tracking-[-2.2px] text-align-text">
-            a<span className="tracking-[-1.92px]">l</span>ign
-          </span>
         </Link>
 
         <nav className="hidden items-center justify-center gap-2 md:col-span-2 md:flex">

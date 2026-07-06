@@ -5,7 +5,7 @@ import { AccordionCards } from "./accordion-cards"
 export function FoundersHeroSection() {
   return (
     <section className="w-full bg-align-bg">
-      <GridContainer cols={8} className="pt-[83px] pb-24">
+      <GridContainer cols={8} className="pt-20.75 pb-24">
         <DynamicShiftText
           as="h1"
           className="col-span-8 font-sans text-[48px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:col-span-6 lg:col-start-1 lg:text-[64px]"
@@ -15,11 +15,8 @@ export function FoundersHeroSection() {
         </DynamicShiftText>
 
         <p
-          className="col-span-8 mt-8 font-sans text-[48px] font-light text-align-text lg:col-span-3 lg:col-start-3"
-          style={{
-            lineHeight: "110px",
-            letterSpacing: "-0.16px",
-          }}
+          className="col-span-8 mt-8 font-sans text-[48px] leading-14.5 font-light text-align-text md:leading-27.5 lg:col-span-3 lg:col-start-3"
+          style={{ letterSpacing: "-0.16px" }}
         >
           What we provide
         </p>

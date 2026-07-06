@@ -6,6 +6,7 @@ interface GridContainerProps {
   as?: "div" | "section" | "header" | "footer"
   cols?: 4 | 8
   grid?: boolean
+  mobileFullWidth?: boolean
 }
 
 const COLS_CLASS: Record<4 | 8, string> = {
@@ -19,11 +20,15 @@ export function GridContainer({
   as: Tag = "div",
   cols = 4,
   grid = true,
+  mobileFullWidth = false,
 }: GridContainerProps) {
   return (
     <Tag
       className={cn(
-        "mx-auto w-full max-w-(--grid-content) px-(--grid-pad)",
+        "w-full",
+        !mobileFullWidth && "mx-auto max-w-(--grid-content) px-(--grid-pad)",
+        mobileFullWidth &&
+          "max-w-none md:mx-auto md:max-w-(--grid-content) md:px-(--grid-pad)",
         grid && `grid ${COLS_CLASS[cols]} gap-(--grid-gap)`,
         className
       )}

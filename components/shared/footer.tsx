@@ -80,7 +80,7 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="mt-8 flex items-end justify-between lg:mt-0">
+          <div className="mt-16 flex items-end justify-between lg:mt-0">
             <div>
               <a
                 href="mailto:hello@align.xyz"

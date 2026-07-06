@@ -27,7 +27,8 @@ const ITEMS: AccordionItem[] = [
   },
   {
     title: "Exposure",
-    content: "",
+    content:
+      "We get your startup in front of users, partners, and communities. We run social campaigns that turn attention into adoption, and adoption into revenue.",
   },
 ]
 
