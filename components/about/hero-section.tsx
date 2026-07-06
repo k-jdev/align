@@ -8,8 +8,9 @@ export function AboutHeroSection() {
         as="h1"
         className="col-span-full pt-[83px] font-sans text-[40px] leading-[1.1] font-light tracking-[-2px] text-align-text lg:text-[64px]"
       >
-        Align is a venture studio &amp; network <br /> powering startups at the
-        frontier of <br /> emerging technologies.
+        Align is a venture studio &amp; network <br className="max-md:hidden" />{" "}
+        powering startups at the frontier of <br className="max-md:hidden" />{" "}
+        emerging technologies.
       </DynamicShiftText>
 
       <div className="col-span-full mt-8 flex items-center gap-4">
