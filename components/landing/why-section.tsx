@@ -9,7 +9,7 @@ export function WhySection() {
           Why we make a difference.
         </h2>
 
-        <div className="mt-6 flex items-end justify-between">
+        <div className="mt-6 flex items-end justify-between md:mt-0">
           <div className="flex items-center gap-3">
             <div className="size-2 shrink-0 bg-align-green" />
             <span className="font-mono text-xl leading-5 text-align-text">
