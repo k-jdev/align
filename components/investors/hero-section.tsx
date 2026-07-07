@@ -18,7 +18,7 @@ export function InvestorsHeroSection() {
         <section className="relative col-span-full flex flex-col overflow-hidden bg-align-footer pt-8 lg:h-112.5 lg:pb-8">
           <GridContainer
             cols={8}
-            className="ld:px-8 relative z-10 flex flex-col lg:grid lg:h-full"
+            className="relative z-10 flex flex-col lg:grid lg:h-full lg:px-8"
           >
             <h1 className="col-span-8 font-sans text-[clamp(2.25rem,1.53rem+2.08vw,3rem)] leading-[1.1] font-light tracking-[-2px] text-white lg:col-span-3 lg:col-start-1 lg:max-w-118.5">
               You are a{" "}
