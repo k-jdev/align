@@ -14,11 +14,11 @@ export function InvestorsHeroSection() {
         </GridContainer>
       </section>
 
-      <GridContainer cols={8} className="pt-8 pb-12" mobileFullWidth>
-        <section className="relative col-span-full flex flex-col overflow-hidden bg-align-footer pt-8 lg:h-112.5 lg:pb-12">
+      <GridContainer cols={8} className="px-0 pt-8 pb-8" mobileFullWidth>
+        <section className="relative col-span-full flex flex-col overflow-hidden bg-align-footer pt-8 lg:h-112.5 lg:pb-8">
           <GridContainer
             cols={8}
-            className="relative z-10 flex flex-col lg:grid lg:h-full"
+            className="ld:px-8 relative z-10 flex flex-col lg:grid lg:h-full"
           >
             <h1 className="col-span-8 font-sans text-[clamp(2.25rem,1.53rem+2.08vw,3rem)] leading-[1.1] font-light tracking-[-2px] text-white lg:col-span-3 lg:col-start-1 lg:max-w-118.5">
               You are a{" "}
@@ -45,7 +45,7 @@ export function InvestorsHeroSection() {
             <div className="pointer-events-none absolute top-0 right-0 left-0 z-10 h-20 bg-linear-to-b from-align-footer to-[rgba(7,7,7,0)] lg:hidden" />
 
             <div className="absolute right-0 bottom-6 left-0 z-10 lg:static lg:contents">
-              <GridContainer cols={8} className="lg:h-full">
+              <GridContainer cols={8} className="lg:h-full lg:px-8">
                 <div className="col-span-8 bg-white p-2.5 lg:col-span-3 lg:col-start-1 lg:mt-0 lg:w-auto lg:max-w-89 lg:self-end">
                   <p className="font-mono text-sm leading-5 text-align-text">
                     Align closes the distance between those building and those
