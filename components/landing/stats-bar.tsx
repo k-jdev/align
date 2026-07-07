@@ -8,22 +8,22 @@ interface StatItem {
 
 const STATS: StatItem[] = [
   {
-    value: "$250M+",
+    value: "$250M",
     label: "in value created across our 20+ ventures.",
     icon: "arrow-up",
   },
   {
-    value: "150K+",
+    value: "150K",
     label: "unique users reached across projects we've backed.",
     icon: "arrow-up",
   },
   {
-    value: "40K+",
-    label: "ndividual investors curated for teams we’ve worked with.",
+    value: "40K",
+    label: "investors curated for teams we’ve worked with.",
     icon: "user-plus",
   },
   {
-    value: "270M+",
+    value: "270M",
     label: "social media impressions generated through our network.",
     icon: "arrow-up",
   },
