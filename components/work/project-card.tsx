@@ -1,11 +1,16 @@
+import Link from "next/link"
+
 interface ProjectCardProps {
   label?: string
   description?: string
+  slug?: string
 }
 
-export function ProjectCard({ label, description }: ProjectCardProps) {
+export function ProjectCard({ label, description, slug }: ProjectCardProps) {
+  const href = slug ? `/work/${slug}` : "#"
+
   return (
-    <div>
+    <Link href={href} className="group block">
       <div className="aspect-[691/450] w-full bg-[#e1e1e1]" />
 
       {label && (
@@ -20,6 +25,6 @@ export function ProjectCard({ label, description }: ProjectCardProps) {
           )}
         </div>
       )}
-    </div>
+    </Link>
   )
 }

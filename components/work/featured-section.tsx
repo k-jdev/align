@@ -6,10 +6,12 @@ const FEATURED_PROJECTS = [
   {
     label: "Ashpool",
     description: "Aliquip anim magna quis nulla irure exercitation.",
+    slug: "ashpool",
   },
   {
     label: "Ashpool",
     description: "Aliquip anim magna quis nulla irure exercitation.",
+    slug: "ashpool",
   },
 ]
 
@@ -17,14 +19,20 @@ const BOTTOM_PROJECTS = [
   {
     label: "Ashpool",
     description: "Aliquip anim magna quis nulla irure exercitation.",
+    slug: "ashpool",
   },
   {
     label: "Ashpool",
     description: "Aliquip anim magna quis nulla irure exercitation.",
+    slug: "ashpool",
   },
 ]
 
-const MORE_PROJECTS = ["Ashpool", "Ashpool", "Ashpool"]
+const MORE_PROJECTS: { label: string; slug: string }[] = [
+  { label: "Ashpool", slug: "ashpool" },
+  { label: "Ashpool", slug: "ashpool" },
+  { label: "Ashpool", slug: "ashpool" },
+]
 
 export function WorkFeaturedSection() {
   return (
@@ -37,7 +45,11 @@ export function WorkFeaturedSection() {
         <div className="col-span-full mt-8 grid grid-cols-1 gap-6 md:grid-cols-8 md:gap-x-(--grid-gap) md:gap-y-14">
           {[...FEATURED_PROJECTS, ...BOTTOM_PROJECTS].map((p, i) => (
             <div key={i} className="md:col-span-4">
-              <ProjectCard label={p.label} description={p.description} />
+              <ProjectCard
+                label={p.label}
+                description={p.description}
+                slug={p.slug}
+              />
             </div>
           ))}
         </div>
@@ -55,16 +67,17 @@ export function WorkFeaturedSection() {
         </div>
 
         <div className="col-span-full mt-8 grid grid-cols-2 gap-[10px] md:grid-cols-3">
-          {MORE_PROJECTS.map((name, i) => (
-            <div
+          {MORE_PROJECTS.map((project, i) => (
+            <Link
               key={i}
+              href={`/work/${project.slug}`}
               className={`flex flex-col gap-4 ${i === 2 ? "max-md:hidden" : ""}`}
             >
               <div className="aspect-[691/450] w-full bg-[#e1e1e1]" />
               <p className="font-mono text-[20px] leading-5 tracking-[0] text-align-text">
-                {name}
+                {project.label}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </GridContainer>
