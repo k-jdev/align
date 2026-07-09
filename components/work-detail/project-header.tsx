@@ -96,14 +96,14 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
           </Link>
         </div>
 
-        {/* Title + Meta — same row: title cols 1-4, meta cols 5-6 */}
-        <div className="col-span-full mt-8 md:col-span-4">
+        {/* Title + Meta — same row on wide screens, stacked below 1200px */}
+        <div className="col-span-full mt-8 min-[1200px]:col-span-4 min-[1200px]:row-start-2">
           <h1 className="font-sans text-[42px] leading-[1.1] font-light tracking-[-2px] text-align-text md:text-[80px]">
             {project.title}
           </h1>
         </div>
 
-        <div className="col-span-2 col-start-5 row-start-2 flex flex-col gap-2 self-end uppercase max-md:col-span-full max-md:row-auto max-md:mt-6">
+        <div className="col-span-2 col-start-5 row-start-3 flex flex-col gap-2 self-end uppercase max-[1200px]:col-span-full max-[1200px]:row-auto max-[1200px]:mt-4 min-[1200px]:row-start-2">
           <MetaRow label="Year" value={project.meta.year} />
           <MetaRow label="Project type" value={project.meta.projectType} />
           <MetaRow label="commodo" value={project.meta.client} />
