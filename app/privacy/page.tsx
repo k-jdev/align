@@ -5,9 +5,11 @@ import { PRIVACY_DATA } from "@/lib/legal-content"
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-align-bg">
-      <Header />
-      <LegalPage data={PRIVACY_DATA} />
+    <div className="min-h-screen bg-align-footer">
+      <div className="bg-align-bg">
+        <Header />
+        <LegalPage data={PRIVACY_DATA} />
+      </div>
       <Footer />
     </div>
   )

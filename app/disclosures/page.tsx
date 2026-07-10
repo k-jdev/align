@@ -5,9 +5,11 @@ import { DISCLOSURES_DATA } from "@/lib/legal-content"
 
 export default function DisclosuresPage() {
   return (
-    <div className="min-h-screen bg-align-bg">
-      <Header />
-      <LegalPage data={DISCLOSURES_DATA} />
+    <div className="min-h-screen bg-align-footer">
+      <div className="bg-align-bg">
+        <Header />
+        <LegalPage data={DISCLOSURES_DATA} />
+      </div>
       <Footer />
     </div>
   )
