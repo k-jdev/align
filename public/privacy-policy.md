@@ -2,7 +2,7 @@
 
 **Last updated: [DATE]**
 
-This Privacy Policy explains how [ALIGN LEGAL ENTITY NAME] ("**Align**," "**we**," "**us**," or "**our**") collects, uses, discloses, and protects personal information when you visit align.xyz and related pages we operate (the "**Site**"), contact us, subscribe to our communications, or otherwise interact with us online. It also describes the rights and choices available to you.
+This Privacy Policy explains how [ALIGN LEGAL ENTITY NAME] ("**Align**," "**we**," "**us**," or "**our**") collects, uses, discloses, and protects personal information when you visit align.win and related pages we operate (the "**Site**"), contact us, subscribe to our communications, or otherwise interact with us online. It also describes the rights and choices available to you.
 
 Align acts as the data controller for personal information collected through the Site. If you engage with Align or its affiliates as an investor, founder, or counterparty, additional privacy notices may apply to that relationship and will govern to the extent of any conflict.
 
@@ -66,7 +66,7 @@ Depending on where you live, you may have some or all of the following rights re
 - to withdraw consent at any time, without affecting processing that occurred before withdrawal; and
 - to lodge a complaint with your data-protection authority (for EEA/UK residents) or exercise rights available under applicable state or provincial privacy laws (for example, the California Consumer Privacy Act or Quebec's Law 25), including the right not to be discriminated against for exercising them.
 
-To exercise any of these rights, contact us at **hello@align.xyz**. We may need to verify your identity before acting on a request, and we will respond within the timeframe required by applicable law. Authorized agents may submit requests on your behalf where applicable law permits, subject to verification.
+To exercise any of these rights, contact us at **hello@align.win**. We may need to verify your identity before acting on a request, and we will respond within the timeframe required by applicable law. Authorized agents may submit requests on your behalf where applicable law permits, subject to verification.
 
 **Marketing opt-out:** every marketing email we send includes an unsubscribe link; you may also opt out by contacting us.
 
@@ -88,6 +88,6 @@ We may update this Policy from time to time. The "Last updated" date reflects th
 
 ## 12. Contact Us
 
-Privacy questions, requests, and complaints may be directed to: **hello@align.xyz**, or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].
+Privacy questions, requests, and complaints may be directed to: **hello@align.win**, or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].
 
 [If GDPR applies and you have appointed one, identify your EU/UK representative or Data Protection Officer here.]

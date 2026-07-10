@@ -33,7 +33,7 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body>
+      <body className="bg-align-footer">
         <ThemeProvider>{children}</ThemeProvider>
         <GridOverlay />
       </body>

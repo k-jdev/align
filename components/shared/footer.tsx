@@ -83,10 +83,10 @@ export function Footer() {
           <div className="mt-16 flex items-end justify-between lg:mt-0">
             <div>
               <a
-                href="mailto:hello@align.xyz"
+                href="mailto:hello@align.win"
                 className="font-sans text-[28px] leading-[1.1] font-light tracking-[-2px] text-white lg:text-[48px]"
               >
-                hello@align.xyz
+                hello@align.win
               </a>
               <div className="mt-2">
                 <span className="font-mono text-xs leading-5 text-align-dim">

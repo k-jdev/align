@@ -15,7 +15,7 @@ export const DISCLOSURES_DATA: LegalPageData = {
   title: "Website Disclosures",
   lastUpdated: "08.07.2026",
   intro:
-    'These Disclosures apply to align.xyz and all content published by [ALIGN LEGAL ENTITY NAME] ("Align," "we," "us") on the Site, including our blog and any materials linked from it. They are incorporated into our Terms of Service. Please read them carefully.',
+    'These Disclosures apply to align.win and all content published by [ALIGN LEGAL ENTITY NAME] ("Align," "we," "us") on the Site, including our blog and any materials linked from it. They are incorporated into our Terms of Service. Please read them carefully.',
   sections: [
     {
       heading: "1. No Offer or Solicitation",
@@ -115,7 +115,7 @@ export const DISCLOSURES_DATA: LegalPageData = {
     {
       heading: "13. Contact",
       paragraphs: [
-        "Questions regarding these Disclosures may be directed to hello@align.xyz.",
+        "Questions regarding these Disclosures may be directed to hello@align.win.",
       ],
     },
   ],
@@ -125,7 +125,7 @@ export const TERMS_DATA: LegalPageData = {
   title: "Terms of Service",
   lastUpdated: "08.07.2026",
   intro:
-    'These Terms of Service govern your access to and use of the website located at align.xyz and any related pages, content, and features we operate (collectively, the "Site"). The Site is operated by [ALIGN LEGAL ENTITY NAME], a [entity type] organized under the laws of [jurisdiction] ("Align," "we," "us," or "our").',
+    'These Terms of Service govern your access to and use of the website located at align.win and any related pages, content, and features we operate (collectively, the "Site"). The Site is operated by [ALIGN LEGAL ENTITY NAME], a [entity type] organized under the laws of [jurisdiction] ("Align," "we," "us," or "our").',
   sections: [
     {
       heading: "1. Who May Use the Site",
@@ -170,7 +170,7 @@ export const TERMS_DATA: LegalPageData = {
       paragraphs: [
         "If you contact us, subscribe to our blog or mailing list, or submit information through the Site (for example, as a founder or prospective investor), you represent and warrant that the information you provide is accurate, that you have all rights necessary to provide it, and that it does not violate any law or third-party right.",
         'Unsolicited submissions. Any ideas, business plans, pitch materials, feedback, or suggestions you send us through or in connection with the Site ("Submissions") are non-confidential and non-proprietary. You grant Align a perpetual, irrevocable, worldwide, royalty-free, sublicensable, transferable license to use, reproduce, modify, and otherwise exploit Submissions for any purpose, without compensation, attribution, or obligation to you, except as expressly agreed in a separate written agreement signed by Align or as required by law. Do not submit confidential or proprietary information through the Site. Align independently develops, evaluates, and invests in ventures, and you agree that Align\'s activities may resemble your Submissions without giving rise to any claim.',
-        "Electronic communications. By using the Site or providing your email address, you consent to receive communications from us electronically, and you agree that all agreements, notices, and disclosures we provide electronically satisfy any legal requirement that such communications be in writing. You may opt out of marketing communications at any time via the unsubscribe mechanism in our emails or by contacting hello@align.xyz.",
+        "Electronic communications. By using the Site or providing your email address, you consent to receive communications from us electronically, and you agree that all agreements, notices, and disclosures we provide electronically satisfy any legal requirement that such communications be in writing. You may opt out of marketing communications at any time via the unsubscribe mechanism in our emails or by contacting hello@align.win.",
       ],
     },
     {
@@ -229,7 +229,7 @@ export const TERMS_DATA: LegalPageData = {
       callout:
         "PLEASE READ THIS SECTION CAREFULLY \u2014 IT AFFECTS YOUR RIGHTS. (a) Informal resolution first. (b) Binding arbitration. (c) CLASS ACTION AND JURY TRIAL WAIVER. ALL CLAIMS MUST BE BROUGHT IN THE PARTIES' INDIVIDUAL CAPACITY. (d) Time limit on claims. (e) Consumer carve-out.",
       paragraphs: [
-        "Before filing any claim, you agree to first contact us at hello@align.xyz with a written description of the dispute and give us 30 days to attempt to resolve it informally.",
+        "Before filing any claim, you agree to first contact us at hello@align.win with a written description of the dispute and give us 30 days to attempt to resolve it informally.",
         "Any dispute, claim, or controversy arising out of or relating to these Terms or the Site that is not resolved informally shall be finally resolved by binding, confidential arbitration administered by [ARBITRAL INSTITUTION] under its rules then in effect, before a single arbitrator, seated in [venue], conducted in English. Judgment on the award may be entered in any court of competent jurisdiction. Either party may seek injunctive or equitable relief in a court of competent jurisdiction to protect intellectual property or confidential information.",
         "To the maximum extent permitted by law, any claim arising out of or relating to the Site or these Terms must be commenced within one (1) year after the claim accrues; otherwise it is permanently barred.",
         "If the law of your place of residence grants you mandatory rights to bring claims in your local courts or under local consumer-protection law, nothing in this Section deprives you of those rights.",
@@ -262,7 +262,7 @@ export const TERMS_DATA: LegalPageData = {
     {
       heading: "19. Contact",
       paragraphs: [
-        "Questions about these Terms may be directed to hello@align.xyz or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].",
+        "Questions about these Terms may be directed to hello@align.win or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].",
       ],
     },
   ],
@@ -272,7 +272,7 @@ export const PRIVACY_DATA: LegalPageData = {
   title: "Privacy Policy",
   lastUpdated: "08.07.2026",
   intro:
-    'This Privacy Policy explains how [ALIGN LEGAL ENTITY NAME] ("Align," "we," "us," or "our") collects, uses, discloses, and protects personal information when you visit align.xyz and related pages we operate (the "Site"), contact us, subscribe to our communications, or otherwise interact with us online. It also describes the rights and choices available to you. Align acts as the data controller for personal information collected through the Site. If you engage with Align or its affiliates as an investor, founder, or counterparty, additional privacy notices may apply to that relationship and will govern to the extent of any conflict.',
+    'This Privacy Policy explains how [ALIGN LEGAL ENTITY NAME] ("Align," "we," "us," or "our") collects, uses, discloses, and protects personal information when you visit align.win and related pages we operate (the "Site"), contact us, subscribe to our communications, or otherwise interact with us online. It also describes the rights and choices available to you. Align acts as the data controller for personal information collected through the Site. If you engage with Align or its affiliates as an investor, founder, or counterparty, additional privacy notices may apply to that relationship and will govern to the extent of any conflict.',
   sections: [
     {
       heading: "1. Information We Collect",
@@ -336,7 +336,7 @@ export const PRIVACY_DATA: LegalPageData = {
         "to object to, or request restriction of, certain processing, including direct marketing;",
         "to withdraw consent at any time, without affecting processing that occurred before withdrawal; and",
         "to lodge a complaint with your data-protection authority (for EEA/UK residents) or exercise rights available under applicable state or provincial privacy laws (for example, the California Consumer Privacy Act or Quebec's Law 25), including the right not to be discriminated against for exercising them.",
-        "To exercise any of these rights, contact us at hello@align.xyz. We may need to verify your identity before acting on a request, and we will respond within the timeframe required by applicable law. Authorized agents may submit requests on your behalf where applicable law permits, subject to verification.",
+        "To exercise any of these rights, contact us at hello@align.win. We may need to verify your identity before acting on a request, and we will respond within the timeframe required by applicable law. Authorized agents may submit requests on your behalf where applicable law permits, subject to verification.",
         "Marketing opt-out: every marketing email we send includes an unsubscribe link; you may also opt out by contacting us.",
       ],
     },
@@ -367,7 +367,7 @@ export const PRIVACY_DATA: LegalPageData = {
     {
       heading: "12. Contact Us",
       paragraphs: [
-        "Privacy questions, requests, and complaints may be directed to: hello@align.xyz, or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].",
+        "Privacy questions, requests, and complaints may be directed to: hello@align.win, or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].",
       ],
     },
   ],

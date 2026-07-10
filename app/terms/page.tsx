@@ -5,8 +5,8 @@ import { TERMS_DATA } from "@/lib/legal-content"
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-align-footer">
-      <div className="bg-align-bg">
+    <div className="flex min-h-screen flex-col bg-align-footer">
+      <div className="flex-1 bg-align-bg">
         <Header />
         <LegalPage data={TERMS_DATA} />
       </div>

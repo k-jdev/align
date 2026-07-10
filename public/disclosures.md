@@ -2,7 +2,7 @@
 
 **Last updated: [DATE]**
 
-These Disclosures apply to align.xyz and all content published by [ALIGN LEGAL ENTITY NAME] ("**Align**," "**we**," "**us**") on the Site, including our blog and any materials linked from it. They are incorporated into our [Terms of Service](/terms). Please read them carefully.
+These Disclosures apply to align.win and all content published by [ALIGN LEGAL ENTITY NAME] ("**Align**," "**we**," "**us**") on the Site, including our blog and any materials linked from it. They are incorporated into our [Terms of Service](/terms). Please read them carefully.
 
 ## 1. No Offer or Solicitation
 
@@ -86,4 +86,4 @@ Content on this Site is provided "as is," may contain errors or become outdated,
 
 ## 13. Contact
 
-Questions regarding these Disclosures may be directed to **hello@align.xyz**.
+Questions regarding these Disclosures may be directed to **hello@align.win**.

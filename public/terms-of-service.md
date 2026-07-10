@@ -2,7 +2,7 @@
 
 **Last updated: [DATE]**
 
-These Terms of Service (the "**Terms**") govern your access to and use of the website located at align.xyz and any related pages, content, and features we operate (collectively, the "**Site**"). The Site is operated by [ALIGN LEGAL ENTITY NAME], a [entity type] organized under the laws of [jurisdiction] ("**Align**," "**we**," "**us**," or "**our**").
+These Terms of Service (the "**Terms**") govern your access to and use of the website located at align.win and any related pages, content, and features we operate (collectively, the "**Site**"). The Site is operated by [ALIGN LEGAL ENTITY NAME], a [entity type] organized under the laws of [jurisdiction] ("**Align**," "**we**," "**us**," or "**our**").
 
 > **BY ACCESSING OR USING THE SITE, YOU AGREE TO BE BOUND BY THESE TERMS, OUR [PRIVACY POLICY](/privacy), AND OUR [DISCLOSURES](/disclosures), EACH OF WHICH IS INCORPORATED INTO THESE TERMS BY REFERENCE. IF YOU DO NOT AGREE, YOU MUST NOT ACCESS OR USE THE SITE. THESE TERMS CONTAIN A BINDING ARBITRATION PROVISION, A CLASS ACTION WAIVER, AND BROAD DISCLAIMERS AND LIMITATIONS OF LIABILITY THAT AFFECT YOUR LEGAL RIGHTS.**
 
@@ -40,7 +40,7 @@ If you contact us, subscribe to our blog or mailing list, or submit information 
 
 **Unsolicited submissions.** Any ideas, business plans, pitch materials, feedback, or suggestions you send us through or in connection with the Site ("**Submissions**") are non-confidential and non-proprietary. You grant Align a perpetual, irrevocable, worldwide, royalty-free, sublicensable, transferable license to use, reproduce, modify, and otherwise exploit Submissions for any purpose, without compensation, attribution, or obligation to you, except as expressly agreed in a separate written agreement signed by Align or as required by law. Do not submit confidential or proprietary information through the Site. Align independently develops, evaluates, and invests in ventures, and you agree that Align's activities may resemble your Submissions without giving rise to any claim.
 
-**Electronic communications.** By using the Site or providing your email address, you consent to receive communications from us electronically, and you agree that all agreements, notices, and disclosures we provide electronically satisfy any legal requirement that such communications be in writing. You may opt out of marketing communications at any time via the unsubscribe mechanism in our emails or by contacting hello@align.xyz.
+**Electronic communications.** By using the Site or providing your email address, you consent to receive communications from us electronically, and you agree that all agreements, notices, and disclosures we provide electronically satisfy any legal requirement that such communications be in writing. You may opt out of marketing communications at any time via the unsubscribe mechanism in our emails or by contacting hello@align.win.
 
 ## 7. Intellectual Property
 
@@ -91,7 +91,7 @@ You agree to defend, indemnify, and hold harmless the Align Parties from and aga
 
 **PLEASE READ THIS SECTION CAREFULLY — IT AFFECTS YOUR RIGHTS.**
 
-**(a) Informal resolution first.** Before filing any claim, you agree to first contact us at hello@align.xyz with a written description of the dispute and give us 30 days to attempt to resolve it informally.
+**(a) Informal resolution first.** Before filing any claim, you agree to first contact us at hello@align.win with a written description of the dispute and give us 30 days to attempt to resolve it informally.
 
 **(b) Binding arbitration.** Any dispute, claim, or controversy arising out of or relating to these Terms or the Site that is not resolved informally shall be finally resolved by binding, confidential arbitration administered by [ARBITRAL INSTITUTION — e.g., JAMS / AAA / ICC / ADR Institute of Canada] under its rules then in effect, before a single arbitrator, seated in [venue], conducted in English. Judgment on the award may be entered in any court of competent jurisdiction. Either party may seek injunctive or equitable relief in a court of competent jurisdiction to protect intellectual property or confidential information.
 
@@ -119,4 +119,4 @@ These Terms, together with the Privacy Policy and Disclosures, constitute the en
 
 ## 19. Contact
 
-Questions about these Terms may be directed to **hello@align.xyz** or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].
+Questions about these Terms may be directed to **hello@align.win** or by mail to [ALIGN LEGAL ENTITY NAME], [registered address].
